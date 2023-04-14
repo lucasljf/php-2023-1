@@ -3,7 +3,7 @@
 class Conexao
 {
     private $host = 'mariadb-server';
-    private $db = 'db_exemplo_alunos;';
+    private $db = 'db_exemplo_alunos';
     private $user = 'root';
     private $password = '123';
 
@@ -11,7 +11,6 @@ class Conexao
     {
         try {
             $conexao = new PDO("mysql:host=$this->host;dbname=$this->db", $this->user, $this->password);
-            echo "sucesso!";
             return $conexao;
         } catch (PDOException $e) {
             echo $e;

@@ -17,6 +17,8 @@ $alunoDao = new AlunoDao($conexao);
 
 $alunoDao->inserir($aluno);
 
-echo '<pre>';
-print_r($aluno);
-echo '</pre>';
+// echo '<pre>';
+// print_r($aluno);
+// echo '</pre>';
+
+header('Location: index.html');

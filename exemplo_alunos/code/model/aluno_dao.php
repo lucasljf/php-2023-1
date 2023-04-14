@@ -27,4 +27,26 @@ class AlunoDao
         // manda executar SQL
         $stmt->execute();
     }
+
+    public function listar_tudo()
+    {
+        $sql = 'SELECT * FROM tb_aluno';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $alunos = array();
+
+        // percorrer resultados
+        foreach ($resultados as $item) {
+        
+            // instanciar aluno novo
+            $novo_aluno = new Aluno($item->id, $item->nome, $item->endereco, $item->telefone, $item->data_nascimento);
+            
+            // guardar num novo array
+            $alunos[] = $novo_aluno;
+        }
+        // retornar esse novo array
+        return $alunos;
+    }
 }
