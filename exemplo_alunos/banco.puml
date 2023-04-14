@@ -1,0 +1,25 @@
+@startuml banco
+
+hide circle
+skinparam linetype ortho
+
+entity tb_aluno {
+    * id : int <<PK>>
+    --
+    * nome : varchar(100)
+    * endereco : varchar(200)
+    * telefone : varchar(11)
+    * data_nascimento : date
+}
+
+entity tb_curso {
+    * id : int <<PK>>
+    --
+    * nome : varchar(100)
+    * descricao : varchar(200)
+    * carga_horaria : int
+    * data_inicio : date
+    * data_fim : date
+}
+
+@enduml

@@ -7,3 +7,5 @@ Repositório com os códigos criados durante os experimentos e explicações da 
 (_work in progress_)
 
 Implementação de um CRUD.
+
+![der](./exemplo_alunos/banco.png)
