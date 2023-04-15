@@ -22,4 +22,22 @@ entity tb_curso {
     * data_fim : date
 }
 
+entity tb_turma {
+    * id : int <<PK>>
+    --
+    * nome : varchar(100)
+    * id_curso : int <<FK>>
+}
+
+entity tb_matricula {
+    * id : int <<PK>>
+    --
+    * id_aluno : int <<FK>>
+    * id_turma : int <<FK>>
+    * data_matricula : date
+}
+
+tb_curso ||--o{ tb_turma : possui
+tb_aluno ||--o{ tb_matricula : possui
+tb_turma ||--o{ tb_matricula : possui
 @enduml
