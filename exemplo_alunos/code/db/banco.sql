@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS `db_exemplo_alunos`;
 CREATE DATABASE `db_exemplo_alunos` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
 USE `db_exemplo_alunos`;
@@ -10,5 +9,16 @@ CREATE TABLE `tb_aluno` (
   `endereco` varchar(200) NOT NULL,
   `telefone` varchar(11) NOT NULL,
   `data_nascimento` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+DROP TABLE IF EXISTS `tb_curso`;
+CREATE TABLE `tb_curso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `descricao` varchar(200) NOT NULL,
+  `carga_horaria` int(11) NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
