@@ -16,4 +16,5 @@ echo "<pre>";
 print_r($alunos);
 echo "</pre>";
 
-echo $alunos[0]['nome'];
+// Funcionava apenas quando utilizavamos FETCH_ASSOC
+// echo $alunos[0]['nome'];
