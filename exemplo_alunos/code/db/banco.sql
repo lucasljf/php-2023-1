@@ -23,3 +23,13 @@ CREATE TABLE `tb_curso` (
   date `data_fim` NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+DROP TABLE IF EXISTS `tb_turma`;
+CREATE TABLE `tb_turma` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (id_curso) REFERENCES tb_curso(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
