@@ -12,3 +12,14 @@ CREATE TABLE `tb_aluno` (
   `data_nascimento` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+DROP TABLE IF EXISTS `tb_curso`;
+CREATE TABLE `tb_curso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `descrição` varchar(200) NOT NULL,
+  `carga_horaria` int NOT NULL,
+  date `data_inicio` NOT NULL,
+  date `data_fim` NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
