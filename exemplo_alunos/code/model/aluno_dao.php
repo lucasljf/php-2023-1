@@ -23,7 +23,7 @@ class AlunoDao
     $stmt->bindValue(':endereco', $aluno->__get('endereco'));
     $stmt->bindValue(':telefone', $aluno->__get('telefone'));
     $stmt->bindValue(':data_nascimento', $aluno->__get('data_nascimento'));
-
+    
     // manda executar SQL
     $stmt->execute();
   }
@@ -49,4 +49,22 @@ class AlunoDao
     // retornar esse novo array
     return $alunos;
   }
+
+  public function procurar_por_id($id)
+    {
+        $sql = 'SELECT * FROM tb_aluno WHERE id = :id';
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+
+        $item = $resultado;
+        
+        // instanciar aluno novo
+        $aluno = new Aluno($item->id, $item->nome, $item->endereco, $item->telefone, $item->data_nascimento);
+
+        return $aluno;
+    }
 }
