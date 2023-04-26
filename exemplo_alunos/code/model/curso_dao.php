@@ -50,4 +50,18 @@ class CursoDao
     // retornar esse novo array
     return $cursos;
   }
+
+  public function procurar_por_id($id)
+    {
+        $sql = 'SELECT * FROM tb_curso WHERE id = :id';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+        $item = $resultado;
+        
+        // instanciar curso novo
+        $curso = new Curso($item->id, $item->nome, $item->descricao, $item->carga_horaria, $item->data_inicio, $item->data_fim);
+        return $curso;
+    }
 }

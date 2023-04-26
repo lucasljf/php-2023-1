@@ -6,13 +6,13 @@ class Turma
 {
     private $id;
     private $nome;
-    private $id_curso;
+    private $curso;
 
-    public function __construct($id, $nome, $id_curso)
+    public function __construct($id, $nome, $curso)
     {
         $this->id = $id;
         $this->nome = $nome;
-        $this->id_curso = $id_curso;
+        $this->curso = $curso;
     }
 
     public function __get($atributo)
@@ -24,10 +24,4 @@ class Turma
     {
         $this->$atributo = $valor;
     }
-
-    public function setCurso($id_curso)
-    {
-        $this->curso = $id_curso;
-    }
-
 }
