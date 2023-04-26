@@ -13,8 +13,7 @@
             <?php
             require_once '../model/aluno_dao.php';
 
-            $conexao = new Conexao();
-            $alunoDao = new AlunoDao($conexao);
+            $alunoDao = new AlunoDao();
     
             $alunos = $alunoDao->listar_tudo();
             
@@ -29,8 +28,7 @@
             <?php
             require_once '../model/turma_dao.php';
 
-            $conexao = new Conexao();
-            $turmaDao = new TurmaDao($conexao);
+            $turmaDao = new TurmaDao();
     
             $turmas = $turmaDao->listar_tudo();
             
