@@ -9,10 +9,11 @@ class MatriculaDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
-    {
-        $this->conexao = $conexao->conectar();
-    }
+    public function __construct()
+  {
+    $conexao = new Conexao();
+    $this->conexao = $conexao->conectar();
+  }
 
     public function inserir(Matricula $matricula)
     {
@@ -36,7 +37,7 @@ class MatriculaDao
         $stmt->execute();
 
         $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $turmas = array();
+        $matriculas = array();
 
         // percorrer resultados
         foreach ($resultados as $item) {

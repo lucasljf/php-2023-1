@@ -21,8 +21,8 @@
 
         <?php
         require_once '../model/curso_dao.php';
-        $conexao = new Conexao();
-        $cursoDao = new CursoDao($conexao);
+        
+        $cursoDao = new CursoDao();
 
         $cursos = $cursoDao->listar_tudo();
 

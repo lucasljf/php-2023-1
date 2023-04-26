@@ -11,8 +11,7 @@ $data_fim = $_GET['data_fim'];
 
 $curso = new Curso(0, $nome, $descricao, $carga_horaria, $data_inicio, $data_fim);
 
-$conexao = new Conexao();
-$cursoDao = new CursoDao($conexao);
+$cursoDao = new CursoDao();
 
 $cursoDao->inserir($curso);
 

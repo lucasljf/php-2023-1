@@ -8,10 +8,11 @@ class TurmaDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
-    {
-        $this->conexao = $conexao->conectar();
-    }
+    public function __construct()
+  {
+    $conexao = new Conexao();
+    $this->conexao = $conexao->conectar();
+  }
 
     public function inserir(Turma $turma)
     {
@@ -24,7 +25,7 @@ class TurmaDao
         $stmt->bindValue(':id_curso', $turma->__get('curso')->__get('id'));
 
         // manda executar SQL
-        $stmt->execute();
+        $stmt->execute(); 
     }
 
     public function listar_tudo()

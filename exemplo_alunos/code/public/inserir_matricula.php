@@ -8,8 +8,7 @@ require_once '../model/turma.php';
 $id_aluno = $_GET['id_aluno'];
 $id_turma = $_GET['id_turma'];
 
-$conexao = new Conexao();
-$matriculaDao = new MatriculaDao($conexao);
+$matriculaDao = new MatriculaDao();
 
 $aluno = new Aluno($id_aluno, null, null, null, null);
 $turma = new Turma($id_turma, null, null);
