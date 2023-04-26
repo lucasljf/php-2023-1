@@ -6,10 +6,9 @@ $user = 'root';
 $password = '123';
 
 try {
-  $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-  echo 'Conectado com sucesso!';
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $password);
+    echo 'Conectado com sucesso!';
 } catch (PDOException $e) {
-  echo $e->getMessage();
-  echo 'Erro ao conectar!';
+    echo $e->getMessage();
+    echo 'Erro ao conectar!';
 }
-

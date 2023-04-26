@@ -22,4 +22,3 @@ $alunoDao->inserir($aluno);
 // echo '</pre>';
 
 header('Location: index.html');
-
