@@ -3,20 +3,18 @@
 require_once '../model/matricula.php';
 require_once '../model/matricula_dao.php';
 
-$nome = $_GET['nome'];
-$descricao = $_GET['descricao'];
-$carga_horaria =  $_GET['carga_horaria'];
-$data_inicio = $_GET['data_inicio'];
-$data_final = $_GET['data_final'];
+$id_aluno = $_GET['id_aluno'];
+$id_turma =  $_GET['id_turma'];
+$data_ingresso = $_GET['data_ingresso'];
 
 // echo $nome;
 
-$curso = new Curso(0, $nome, $descricao, $carga_horaria, $data_inicio, $data_final);
+$matricula = new Matricula(0, $id_aluno, $id_turma, $data_ingresso);
 
 $conexao = new Conexao();
-$cursoDao = new CursoDao($conexao);
+$matriculaDao = new MatriculaDao($conexao);
 
-$cursoDao->inserir($curso);
+$matriculaDao->inserir($matricula);
 
 // echo '<pre>';
 // print_r($aluno);
