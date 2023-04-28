@@ -12,16 +12,21 @@
   <form action="inserir_turma.php" method="get">
     Nome: <br>
     <input type="text" name="nome" id="nome"> <br><br>
+    <br>
+    Nome do curso: <br>
+    <select>
+      <?php
+        require_once '../model/curso_dao.php';
+        $cursoDao = new CursoDao();
 
-    Endereço: <br>
-    <input type="text" name="endereco" id="endereco"> <br><br>
+        $cursos = $cursoDao->listar_tudo();
 
-    Telefone: <br>
-    <input type="text" name="telefone" id="telefone"> <br><br>
-
-    Data de nascimento: <br>
-    <input type="date" name="data_nascimento" id="data_nascimento"> <br><br>
-
+        foreach ($cursos as $curso) {
+          echo "<option value='". $curso->id . "'>" . $curso->nome. "</option>";
+        }
+      ?>
+    </select>
+    <br>
     <input type="submit" value="Salvar">
   </form>
 </body>

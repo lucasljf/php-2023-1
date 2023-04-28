@@ -50,4 +50,18 @@ class AlunoDao
     // retornar esse novo array
     return $alunos;
   }
+
+  public function procurar_por_id($id)
+    {
+        $sql = 'SELECT * FROM tb_aluno WHERE id = :id';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+        $item = $resultado;
+        
+        // instanciar aluno novo
+        $aluno = new Aluno($item->id, $item->nome, $item->endereco, $item->telefone, $item->data_nascimento);
+        return $aluno;
+    }
 }

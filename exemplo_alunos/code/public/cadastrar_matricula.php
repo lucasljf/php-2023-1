@@ -27,13 +27,13 @@
     Nome da turma: <br>
     <select>
       <?php
-        require_once '../model/curso_dao.php';
-        $cursoDao = new CursoDao();
+        require_once '../model/turma_dao.php';
+        $turmaDao = new TurmaDao();
 
-        $cursos = $cursoDao->listar_tudo();
+        $turmas = $turmaDao->listar_tudo();
 
-        foreach ($cursos as $curso) {
-          echo "<option value='". $curso->id . "'>" . $curso->nome. "</option>";
+        foreach ($turmas as $turma) {
+          echo "<option value='". $turma->id . "'>" . $turma->nome. "</option>";
         }
       ?>
     </select>
