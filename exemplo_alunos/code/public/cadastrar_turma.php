@@ -14,6 +14,7 @@
 
             Escolha um curso: <br>
             <select name="curso_id" id="curso_id">
+            <option selected disabled value="">Selecione</option>
                 <?php
                 require_once '../model/curso_dao.php';
                 $conexao = new Conexao();

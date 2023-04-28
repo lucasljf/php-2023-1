@@ -11,6 +11,7 @@
 
         Aluno: <br>
         <select type="text" name="id_aluno" id="id_aluno"> <br><br>
+        <option selected disabled value="">Selecione</option>
         <?php
                 require_once "../model/aluno_dao.php";
                 $conexao = new Conexao();
@@ -19,13 +20,13 @@
                 $alunos = $alunoDao -> listar_tudo();
 
                 foreach ($alunos as $aluno) {
-                    echo "<option value ='" . $aluno->id . "'>" . $aluno->nome . "</option";
-                }
+                    echo "<option value ='" . $aluno->id . "'>" . $aluno->nome . "</option>"; }
             ?>
-        </select> <br>
+        </select> <br> <br>
 
         Turma: <br>
         <select type="text" name="id_turma" id="id_turma"> <br><br>
+        <option selected disabled value="">Selecione</option>
             <?php
                 require_once '../model/turma_dao.php';
                 $conexao = new Conexao();
@@ -34,8 +35,7 @@
                 $turmas = $turmaDao -> listar_tudo();
 
                 foreach ($turmas as $turma) {
-                    echo "<option value ='" . $turma->id . "'>" . $turma->nome . "</option>";
-                }
+                    echo "<option value ='" . $turma->id . "'>" . $turma->nome . "</option>"; }
             ?>
         </select> <br> <br>
 
