@@ -44,6 +44,7 @@ class TurmaDao{
             // guardar num novo array
             $turmas[] = $nova_turma;
         }
+        return $turmas;
     }
 
     public function procurar_por_id($id)

@@ -7,8 +7,9 @@ class CursoDao
 {
   private $conexao;
 
-  public function __construct(Conexao $conexao)
+  public function __construct()
   {
+    $conexao = new Conexao();
     $this->conexao = $conexao->conectar();
   }
 
@@ -23,7 +24,7 @@ class CursoDao
     $stmt->bindValue(':descricao', $curso->__get('descricao'));
     $stmt->bindValue(':carga_horaria', $curso->__get('carga_horaria'));
     $stmt->bindValue(':data_inicio', $curso->__get('data_inicio'));
-    $stmt->bindValue('::data_fim', $curso->__get('data_fim'));
+    $stmt->bindValue(':data_fim', $curso->__get('data_fim'));
 
     // manda executar SQL
     $stmt->execute();
@@ -42,7 +43,7 @@ class CursoDao
     foreach ($resultados as $item) {
 
       // instanciar aluno novo
-      $novo_curso = new Curso($item->id, $item->nome, $item->descricao, $item->caraga_horaria, $item->data_inicio, $item->data_fim);
+      $novo_curso = new Curso($item->id, $item->nome, $item->descricao, $item->carga_horaria, $item->data_inicio, $item->data_fim);
 
       // guardar num novo array
       $cursos[] = $novo_curso;

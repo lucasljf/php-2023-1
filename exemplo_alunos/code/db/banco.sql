@@ -25,6 +25,15 @@ CREATE TABLE `tb_curso` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+DROP TABLE IF EXISTS `tb_turma`;
+CREATE TABLE `tb_turma` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_curso` (`id_curso`),
+  CONSTRAINT `tb_turma_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `tb_curso` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 DROP TABLE IF EXISTS `tb_matricula`;
 CREATE TABLE `tb_matricula` (
@@ -37,15 +46,4 @@ CREATE TABLE `tb_matricula` (
   KEY `id_aluno` (`id_aluno`),
   CONSTRAINT `tb_matricula_ibfk_3` FOREIGN KEY (`id_turma`) REFERENCES `tb_turma` (`id`),
   CONSTRAINT `tb_matricula_ibfk_4` FOREIGN KEY (`id_aluno`) REFERENCES `tb_aluno` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
-
-DROP TABLE IF EXISTS `tb_turma`;
-CREATE TABLE `tb_turma` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `id_curso` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_curso` (`id_curso`),
-  CONSTRAINT `tb_turma_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `tb_curso` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

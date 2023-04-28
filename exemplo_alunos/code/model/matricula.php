@@ -3,16 +3,16 @@
 class Matricula
 {
     private $id;
-    private $data_matricula;
     private $aluno;
     private $turma;
+    private $data_matricula;
 
-    public function __construct($id, $data_matricula, $aluno, $turma)
+    public function __construct($id, $aluno, $turma, $data_matricula)
     {
         $this->id = $id;
-        $this->data_matricula = $data_matricula;
         $this->aluno = $aluno;
         $this->turma = $turma;
+        $this->data_matricula = $data_matricula;
     }
 
     public function __get($atributo)
