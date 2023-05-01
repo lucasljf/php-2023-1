@@ -2,9 +2,7 @@
 
 require_once '../model/aluno_dao.php';
 
-$conexao = new Conexao();
-
-$alunoDao = new AlunoDao($conexao);
+$alunoDao = new AlunoDao();
 
 $aluno = new Aluno(0, "TesteDao", "Rua Teste Dao", "62900001122", "2000-01-30");
 

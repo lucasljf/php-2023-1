@@ -8,25 +8,32 @@
 </head>
 <body>
     <form action="inserir_turma.php" method="get">
-        Nome: <br>
-        <input type="text" name="nome" id="nome"> <br><br>
+        <?php
+        require_once '../model/curso_dao.php';
 
-        Curso: <br>
-        <select name="id_curso" id="id_curso">
-            <?php
-            require_once '../model/curso_dao.php';
+        $cursoDao = new CursoDao();
+        $cursos = $cursoDao->listar_tudo();
 
-            $cursoDao = new CursoDao();
-    
-            $cursos = $cursoDao->listar_tudo();
+        if (sizeof($cursos) == 0) {
+            echo '<p>É necessário <a href="cadastrar_curso.html">cadastrar um curso</a> para criar uma turma!</p>';
+        } else {
+            echo ' 
+                Nome: <br>
+                <input type="text" name="nome" id="nome"> <br><br>
 
-            foreach($cursos as $curso) {
+                Curso: <br>
+                <select name="id_curso" id="id_curso">
+            ';
+            foreach ($cursos as $curso) {
                 echo '<option value="' . $curso->__get('id') . '">' . $curso->nome . '</option>';
             }
-            ?>
-        </select> <br><br>
-
-        <input type="submit" value="Salvar">
+            echo '
+                </select> <br><br>
+                
+                <input type="submit" value="Salvar">
+            ';
+        }
+        ?>
     </form>
 </body>
 </html>

@@ -41,7 +41,7 @@ class TurmaDao
         foreach ($resultados as $item) {
         
             // buscar curso
-            $cursoDao = new CursoDao(new Conexao());
+            $cursoDao = new CursoDao();
             $curso = $cursoDao->procurar_por_id($item->id_curso);
 
             // instanciar turma nova
@@ -67,7 +67,7 @@ class TurmaDao
         $item = $resultado;
         
         // buscar curso
-        $cursoDao = new CursoDao(new Conexao());
+        $cursoDao = new CursoDao();
         $curso = $cursoDao->procurar_por_id($item->id_curso); 
 
         // instanciar turma nova
