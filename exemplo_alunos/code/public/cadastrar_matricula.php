@@ -11,7 +11,7 @@
 <body>
   <form action="inserir_matricula.php" method="get">
     Nome do aluno: <br>
-    <select>
+    <select  name='id_aluno' id='id_aluno'>
       <?php
         require_once '../model/aluno_dao.php';
         $alunoDao = new AlunoDao();
@@ -25,7 +25,7 @@
     </select>
     <br>
     Nome da turma: <br>
-    <select>
+    <select  name='id_turma' id='id_turma'>
       <?php
         require_once '../model/turma_dao.php';
         $turmaDao = new TurmaDao();
