@@ -8,10 +8,15 @@ $cursoDao = new CursoDao($conexao);
 
 $curso = new Curso(1, "Tec. Teste", "Curso para teste do CursoDao", 200, "2000-01-30", "2000-03-30");
 
-$cursoDao->inserir($curso);
+// $cursoDao->inserir($curso);
 
 $cursos = $cursoDao->listar_tudo();
 
 echo "<pre>";
 print_r($cursos);
+echo "</pre>";
+
+$curso_por_id = $cursoDao->buscar_id(2);
+echo "<pre>";
+print_r($curso_por_id);
 echo "</pre>";
