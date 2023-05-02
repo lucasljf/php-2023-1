@@ -44,4 +44,21 @@ class TurmaDao
         }
         return $turmas;
     }
+
+    public function buscar_id($id)
+    {
+        $sql = 'SELECT * FROM tb_turma WHERE id = :id';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+
+        $cursoDao = new CursoDao(new Conexao());
+        $curso = $cursoDao->buscar_id($resultado->id_curso);
+
+        $nova_turma = new Turma($resultado->id, $resultado->nome, $curso);
+
+        return $nova_turma;
+    }
 }

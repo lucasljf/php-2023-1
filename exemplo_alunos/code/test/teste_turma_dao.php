@@ -19,3 +19,8 @@ $turmas = $turmaDao->listar_tudo();
 echo "<pre>";
 print_r($turmas);
 echo "</pre>";
+
+$turma_por_id = $turmaDao->buscar_id(2);
+echo "<pre>";
+print_r($turma_por_id);
+echo "</pre>";
