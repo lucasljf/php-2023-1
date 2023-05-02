@@ -18,3 +18,8 @@ echo "</pre>";
 
 // Funcionava apenas quando utilizavamos FETCH_ASSOC
 // echo $alunos[0]['nome'];
+
+$aluno_por_id = $alunoDao->buscar_id(2);
+echo "<pre>";
+print_r($aluno_por_id);
+echo "</pre>";
