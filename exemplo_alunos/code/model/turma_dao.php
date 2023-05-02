@@ -40,12 +40,12 @@ class TurmaDao
     foreach ($resultados as $item) {
 
       // instanciar turma nova
-      $novo_curso = new Curso($item->id, $item->nome, $item->descricao, $item->carga_horaria, $item->data_inicio, $item->data_fim);
+      $nova_turma = new Turma($item->id, $item->nome, $item->id_curso);
 
       // guardar num novo array
-      $cursos[] = $novo_curso;
+      $turmas[] = $nova_turma;
     }
     // retornar esse novo array
-    return $cursos;
+    return $turmas;
   }
 }

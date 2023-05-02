@@ -1,10 +1,12 @@
 <?php
 
+require_once 'curso.php';
+
 class Turma
 {
   private $id;
   private $nome;
-  private $id_curso Curso;
+  private Curso $id_curso;
 
 
   public function __construct($id, $nome, $id_curso)
