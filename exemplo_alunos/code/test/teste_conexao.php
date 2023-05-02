@@ -12,4 +12,3 @@ try {
   echo $e->getMessage();
   echo 'Erro ao conectar!';
 }
-
