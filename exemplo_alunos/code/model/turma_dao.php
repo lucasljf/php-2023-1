@@ -1,6 +1,7 @@
 <?php
 
 require_once '../db/conexao.php';
+require_once '../model/curso_dao.php';
 require_once 'turma.php';
 
 class TurmaDao
