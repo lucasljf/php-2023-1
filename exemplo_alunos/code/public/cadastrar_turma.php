@@ -25,7 +25,7 @@
                 <select name="id_curso" id="id_curso">
             ';
             foreach ($cursos as $curso) {
-                echo '<option value="' . $curso->__get('id') . '">' . $curso->nome . '</option>';
+                echo '<option value="' . $curso->id . '">' . $curso->nome . '</option>';
             }
             echo '
                 </select> <br><br>

@@ -18,7 +18,7 @@
             $alunos = $alunoDao->listar_tudo();
             
             foreach($alunos as $aluno) {
-                echo '<option value="' . $aluno->__get('id') . '">' . $aluno->nome . '</option>';
+                echo '<option value="' . $aluno->id . '">' . $aluno->nome . '</option>';
             }
             ?>
         </select> <br><br>
@@ -33,7 +33,7 @@
             $turmas = $turmaDao->listar_tudo();
             
             foreach($turmas as $turma) {
-                echo '<option value="' . $turma->__get('id') . '">' . $turma->nome . " - " .$turma->curso->nome . '</option>';
+                echo '<option value="' . $turma->id . '">' . $turma->nome . " - " .$turma->curso->nome . '</option>';
             }
             ?>
         </select> <br><br>

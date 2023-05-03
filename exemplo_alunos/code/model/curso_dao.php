@@ -20,11 +20,11 @@ class CursoDao
 
         // preencher SQL com dados do curso que eu quero inserir
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':nome', $curso->__get('nome'));
-        $stmt->bindValue(':descricao', $curso->__get('descricao'));
-        $stmt->bindValue( ":carga_horaria", $curso->__get('carga_horaria'));
-        $stmt->bindValue(':data_inicio', $curso->__get('data_inicio'));
-        $stmt->bindValue(':data_fim', $curso->__get('data_fim'));
+        $stmt->bindValue(':nome', $curso->nome);
+        $stmt->bindValue(':descricao', $curso->descricao);
+        $stmt->bindValue(':carga_horaria', $curso->carga_horaria);
+        $stmt->bindValue(':data_inicio', $curso->data_inicio);
+        $stmt->bindValue(':data_fim', $curso->data_fim);
 
         // manda executar SQL
         $stmt->execute();
@@ -62,10 +62,8 @@ class CursoDao
 
         $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
-        $item = $resultado;
-        
         // instanciar curso novo
-        $curso = new Curso($item->id, $item->nome, $item->descricao, $item->carga_horaria, $item->data_inicio, $item->data_fim);
+        $curso = new Curso($resultado->id, $resultado->nome, $resultado->descricao, $resultado->carga_horaria, $resultado->data_inicio, $resultado->data_fim);
 
         return $curso;
     }

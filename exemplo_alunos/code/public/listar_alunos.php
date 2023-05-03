@@ -26,7 +26,7 @@
 
     foreach ($alunos as $aluno) {
       echo "<tr>";
-      echo "<td>" . $aluno->__get('id') . "</td>";
+      echo "<td>" . $aluno->id . "</td>";
       echo "<td>" . $aluno->nome . "</td>";
       echo "<td>" . $aluno->endereco . "</td>";
       echo "<td>" . $aluno->telefone . "</td>";

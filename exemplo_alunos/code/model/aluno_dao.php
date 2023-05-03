@@ -20,10 +20,10 @@ class AlunoDao
 
     // preencher SQL com dados do aluno que eu quero inserir
     $stmt = $this->conexao->prepare($sql);
-    $stmt->bindValue(':nome', $aluno->__get('nome'));
-    $stmt->bindValue(':endereco', $aluno->__get('endereco'));
-    $stmt->bindValue(':telefone', $aluno->__get('telefone'));
-    $stmt->bindValue(':data_nascimento', $aluno->__get('data_nascimento'));
+    $stmt->bindValue(':nome', $aluno->nome);
+    $stmt->bindValue(':endereco', $aluno->endereco);
+    $stmt->bindValue(':telefone', $aluno->telefone);
+    $stmt->bindValue(':data_nascimento', $aluno->data_nascimento);
     
     // manda executar SQL
     $stmt->execute();
