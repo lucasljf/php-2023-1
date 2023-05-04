@@ -3,6 +3,7 @@
 require_once '../db/conexao.php';
 require_once 'turma.php';
 
+
 class TurmaDao
 {
     private $conexao;
@@ -21,7 +22,7 @@ class TurmaDao
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':id', $turma->__get('id'));
         $stmt->bindValue(':nome', $turma->__get('nome'));
-        $stmt->bindValue(':curso_id', $turma->__get('curso_id'));
+        $stmt->bindValue(':curso_id', $turma-> curso -> id);
 
         // manda executar SQL
         $stmt->execute();
@@ -38,9 +39,12 @@ class TurmaDao
 
         // percorrer resultados
         foreach ($resultados as $item) {
-        
+            require_once '../model/curso_dao.php';
+            $conexao = new Conexao();
+            $cursoDao = new CursoDao($conexao);
+            $curso = $cursoDao->busca_id($item -> curso_id);
             // instanciar aluno novo
-            $novo_turma = new Turma($item->id, $item->nome, $item->curso_id);
+            $novo_turma = new Turma($item->id, $item->nome, $curso);
             
             // guardar num novo array
             $turmas[] = $novo_turma;

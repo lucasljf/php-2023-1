@@ -4,13 +4,13 @@ class Turma
 {
     private $id;
     private $nome;
-    private $curso_id;
+    private $curso;
 
-    public function __construct($id, $nome, $curso_id)
+    public function __construct($id, $nome, $curso)
     {
         $this->id = $id;
         $this-> nome = $nome;
-        $this-> curso_id = $curso_id;
+        $this-> curso = $curso;
 
     }
 

@@ -14,7 +14,7 @@
     <table border="1">
         <th>id</th>
         <th>Nome</th>
-        <th>Id curso</th>
+        <th>Curso</th>
 
         <?php
         require_once '../model/turma_dao.php';
@@ -27,7 +27,7 @@
             echo "<tr>";
             echo "<td>" . $turma->__get('id') . "</td>";
             echo "<td>" . $turma->nome . "</td>";
-            echo "<td>" . $turma->curso_id . "</td>";
+            echo "<td>" . $turma->curso-> nome . "</td>";
             echo "<tr>";
         }
         ?>
