@@ -12,12 +12,12 @@
     <h1>Lista de curso</h1>
 
     <table border="1">
-        <th>id</th>
-        <th>nome</th>
-        <th>descricao</th>
-        <th>carga_horaria</th>
-        <th>data_inicio</th>
-        <th>data_final</th>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Carga horária</th>
+        <th>Data inicío</th>
+        <th>Data final</th>
 
         <?php
         require_once '../model/curso_dao.php';

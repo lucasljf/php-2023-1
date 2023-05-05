@@ -12,11 +12,11 @@
     <h1>Lista de alunos</h1>
 
     <table border="1">
-        <th>id</th>
-        <th>nome</th>
-        <th>endereco</th>
-        <th>telefone</th>
-        <th>data nascimento</th>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Telefone</th>
+        <th>Data nascimento</th>
 
         <?php
         require_once '../model/aluno_dao.php';

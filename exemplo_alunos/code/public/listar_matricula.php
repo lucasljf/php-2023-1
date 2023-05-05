@@ -12,10 +12,10 @@
     <h1>Lista de matrícula</h1>
 
     <table border="1">
-        <th>id</th>
+        <th>Id</th>
         <th>Aluno</th>
         <th>Turma</th>
-        <th>data_ingresso</th>
+        <th>Data ingresso</th>
 
         <?php
         require_once '../model/matricula_dao.php';
