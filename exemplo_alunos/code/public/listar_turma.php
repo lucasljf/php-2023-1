@@ -29,7 +29,7 @@
             echo "<td>" . $turma->__get('id') . "</td>";
             echo "<td>" . $turma->nome . "</td>";
             echo "<td>" . $turma->curso-> nome . "</td>";
-            echo "<td>" . $turma-> curso -> descricao . "</td>";
+            echo "<td>" . $turma->curso -> descricao . "</td>";
             echo "<tr>";
         }
         ?>

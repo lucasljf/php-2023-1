@@ -2,6 +2,7 @@
 
 require_once '../db/conexao.php';
 require_once 'turma.php';
+require_once '../model/curso_dao.php';
 
 
 class TurmaDao
@@ -51,5 +52,23 @@ class TurmaDao
         }
         // retornar esse novo array
         return $turmas;
+    }
+    
+    public function busca_id($id)
+    {
+        $sql = 'SELECT * from tb_turma where id = :id';
+        $stmt = $this -> conexao -> prepare($sql);
+        $stmt -> bindValue(':id', $id);
+        $stmt -> execute();
+
+        $resultado = $stmt -> fetch(PDO::FETCH_OBJ);
+
+        $conexao = new Conexao();
+        $cursoDao = new CursoDao($conexao);
+        $curso = $cursoDao->busca_id($resultado->curso_id); 
+
+        $novo_turma = new Turma($resultado->id, $resultado->nome, $curso);
+
+        return $novo_turma;
     }
 }

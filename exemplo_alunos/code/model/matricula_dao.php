@@ -20,8 +20,8 @@ class MatriculaDao
         // preencher SQL com dados do aluno que eu quero inserir
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':id', $matricula->__get('id'));
-        $stmt->bindValue(':id_aluno', $matricula->__get('id_aluno'));
-        $stmt->bindValue(':id_turma', $matricula->__get('id_turma'));
+        $stmt->bindValue(':id_aluno', $matricula-> aluno -> id);
+        $stmt->bindValue(':id_turma', $matricula-> turma -> id);
         $stmt->bindValue(':data_ingresso', $matricula->__get('data_ingresso'));
         
         // manda executar SQL
@@ -39,9 +39,18 @@ class MatriculaDao
 
         // percorrer resultados
         foreach ($resultados as $item) {
-        
+            require_once '../model/aluno_dao.php';
+            $conexao = new Conexao();
+            $alunoDao = new AlunoDao($conexao);
+            $aluno = $alunoDao -> busca_id($item -> id_aluno);
+
+            require_once '../model/turma_dao.php';
+            $conexao = new Conexao();
+            $turmaDao = new TurmaDao($conexao);
+            $turma = $turmaDao -> busca_id($item -> id_turma);
+
             // instanciar aluno novo
-            $novo_matricula = new Matricula($item->id, $item->id_aluno, $item->id_turma, $item->data_ingresso);
+            $novo_matricula = new Matricula($item->id, $aluno, $turma, $item->data_ingresso);
             
             // guardar num novo array
             $matriculas[] = $novo_matricula;

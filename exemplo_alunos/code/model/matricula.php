@@ -3,8 +3,8 @@
 class Matricula
 {
     private $id;
-    private $id_aluno;
-    private $id_turma;
+    private $aluno;
+    private $turma;
     private $data_ingresso;
 
     public function __construct($id, $id_aluno, $id_turma, $data_ingresso)

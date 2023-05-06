@@ -27,8 +27,8 @@
         foreach ($matriculas as $matricula) {
             echo "<tr>";
             echo "<td>" . $matricula->__get('id') . "</td>";
-            echo "<td>" . $matricula->id_aluno . "</td>";
-            echo "<td>" . $matricula->id_turma . "</td>";
+            echo "<td>" . $matricula->id_aluno -> nome . "</td>";
+            echo "<td>" . $matricula->id_turma -> nome . "</td>";
             echo "<td>" . $matricula->data_ingresso . "</td>";
             echo "<tr>";
         }
