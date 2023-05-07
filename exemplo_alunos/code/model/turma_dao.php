@@ -2,6 +2,7 @@
 
 require_once '../db/conexao.php';
 require_once 'turma.php';
+require_once 'curso_dao.php';
 
 class TurmaDao
 {
@@ -19,13 +20,13 @@ class TurmaDao
 
     // preencher SQL com dados do curso que eu quero inserir
     $stmt = $this->conexao->prepare($sql);
-    $stmt->bindValue(':nome', $turma->__get('nome'));
-    $stmt->bindValue(':id_curso', $turma->__get('id_curso'));
-
-
+    $stmt->bindValue(':nome', $turma->nome);
+    $stmt->bindValue(':id_curso', $turma->curso->id);
     // manda executar SQL
     $stmt->execute();
   }
+
+
 
   public function listar_tudo()
   {
@@ -34,13 +35,16 @@ class TurmaDao
     $stmt->execute();
 
     $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
-    $cursos = array();
+    $turmas = array();
 
     // percorrer resultados
     foreach ($resultados as $item) {
+      $conexao = new Conexao();
+      $cursoDao = new CursoDao($conexao);
+      $curso = $cursoDao->buscar_id($item->id_curso);
 
       // instanciar turma nova
-      $nova_turma = new Turma($item->id, $item->nome, $item->id_curso);
+      $nova_turma = new Turma($item->id, $item->nome, $curso);
 
       // guardar num novo array
       $turmas[] = $nova_turma;
@@ -48,4 +52,23 @@ class TurmaDao
     // retornar esse novo array
     return $turmas;
   }
+
+  public function buscar_id($id){
+    $sql = "select * from tb_turma where id = :id";
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+
+    $conexao = new Conexao();
+    
+    $cursoDao = new CursoDao($conexao);
+    $curso = $cursoDao->buscar_id($item->id_curso);
+
+
+    $nova_turma = new Turma($resultado->id, $resultado->nome, $curso);
+
+    return $nova_turma;
+  }
 }
+

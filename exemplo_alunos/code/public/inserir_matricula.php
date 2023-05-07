@@ -1,7 +1,7 @@
 <?php
 
-require_once '../model/turma.php';
-require_once '../model/turma_dao.php';
+require_once '../model/matricula.php';
+require_once '../model/matricula_dao.php';
 
 $nome = $_GET['nome'];
 $curso_id = $_GET['curso_id'];

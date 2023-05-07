@@ -1,17 +1,21 @@
 <?php
 
-class Turma
+class Matricula
 {
   private $id;
-  private $nome;
-  private $curso;
+  private $aluno;
+  private $turma;
+  private $data;
 
 
-  public function __construct($id, $nome, $curso)
+
+  public function __construct($id, $aluno, $turma, $data)
   {
     $this->id = $id;
-    $this->nome = $nome;
-    $this->curso = $curso;
+    $this->aluno = $aluno;
+    $this->turma = $turma;
+    $this->data = $data;
+
   }
 
   public function __get($atributo)

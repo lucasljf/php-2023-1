@@ -14,7 +14,7 @@
     <input type="text" name="nome" id="nome"> <br><br>
 
     Curso: <br>
-    <select name="curso">
+    <select name="curso_id" id="curso_id">
       <?php
       require_once '../model/curso_dao.php';
       $conexao = new Conexao();
