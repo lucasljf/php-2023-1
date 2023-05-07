@@ -18,7 +18,7 @@ class MatriculaDao
   public function inserir(Matricula $matricula)
   {
     // monta SQL
-    $sql = 'INSERT INTO tb_matricula (id_aluno, id_turma, data_matricula) VALUES (:id_aluno, :id_turma, data_matricula)';
+    $sql = 'INSERT INTO tb_matricula (id_aluno, id_turma, data_matricula) VALUES (:id_aluno, :id_turma, :data_matricula)';
 
     // preencher SQL com dados do curso que eu quero inserir
     $stmt = $this->conexao->prepare($sql);
@@ -42,7 +42,7 @@ class MatriculaDao
     $matriculas = array();
 
     // percorrer resultados
-    foreach ($matriculas as $item) {
+    foreach ($resultados as $item) {
       $conexao = new Conexao();
 
       $alunoDao = new AlunoDao($conexao);

@@ -61,9 +61,9 @@ class TurmaDao
     $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
     $conexao = new Conexao();
-    
+
     $cursoDao = new CursoDao($conexao);
-    $curso = $cursoDao->buscar_id($item->id_curso);
+    $curso = $cursoDao->buscar_id($resultado->id_curso);
 
 
     $nova_turma = new Turma($resultado->id, $resultado->nome, $curso);
