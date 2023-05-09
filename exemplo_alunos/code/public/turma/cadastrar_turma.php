@@ -11,7 +11,7 @@
             Nome: <br>
             <input type="tex" name="nome" id="nome"> <br><br>
 
-            <select name="id_curso">
+            <select name="id_curso" id="id_curso">
                 <option value='Selecione' selected>Selecione...</option>
                 <?php
                 require_once '../../model/curso/curso_dao.php';
@@ -25,7 +25,7 @@
                     echo "<option value='" .$curso->id . "'>" .$curso->nome . "</option>";
                 }
                 ?>
-            </select>
+            </select> <br><br>
             <input type="submit" value="Salvar">
         </form>
     </body>

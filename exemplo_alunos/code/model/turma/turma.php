@@ -2,7 +2,7 @@
 
 class Turma {
     private $id;
-    private $nome    ;
+    private $nome;
     private $curso;
 
     public function __construct($id, $nome, $curso) {

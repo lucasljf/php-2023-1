@@ -29,8 +29,7 @@ class CursoDao
     $stmt->execute();
   }
 
-  public function listar_tudo()
-  {
+  public function listar_tudo() {
     $sql = 'SELECT * FROM tb_curso';
     $stmt = $this->conexao->prepare($sql);
     $stmt->execute();

@@ -9,7 +9,6 @@ class TurmaDao {
 
     public function __construct(Conexao $conexao) {
         $this->conexao = $conexao->conectar();
-        
     }
 
     public function inserir(Turma $turma){
@@ -22,9 +21,8 @@ class TurmaDao {
         $stmt->execute();
     }
 
-    public function listar_tudo(){
+    public function listar_tudo() {
         $sql = 'SELECT * FROM tb_turma';
-
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
 
@@ -38,6 +36,7 @@ class TurmaDao {
             $turmas[] = $nova_turma;
         }
         */
+        
         foreach ($resultados as $item) {
 
             $conexao = new Conexao();
