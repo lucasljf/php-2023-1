@@ -45,21 +45,30 @@ CREATE TABLE `tb_matricula` (
   CONSTRAINT `tb_matricula_ibfk_2` FOREIGN KEY (`id_turma`) REFERENCES `tb_turma` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-INSERT INTO `tb_matricula` (`id`, `id_aluno`, `id_turma`, `data_matricula`) VALUES
-(1,	3,	2,	'2020-01-01'),
-(2,	2,	1,	'2023-05-01');
 
 DROP TABLE IF EXISTS `tb_turma`;
 CREATE TABLE `tb_turma` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `id_curso` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_curso` (`id_curso`),
-  CONSTRAINT `tb_turma_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `tb_curso` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 INSERT INTO `tb_turma` (`id`, `nome`, `id_curso`) VALUES
 (1,	'Turma 2009',	1),
 (2,	'Turma de 2010',	2),
 (3,	'2a',	2);
+
+DROP TABLE IF EXISTS `tb_usuario`;
+CREATE TABLE `tb_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_login` varchar(100) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `tb_usuario` (`id`, `nome_login`, `senha`) VALUES
+(1,	'rayllander',	'12345');
+
+
+  

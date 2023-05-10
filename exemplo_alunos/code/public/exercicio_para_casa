@@ -1,0 +1,15 @@
+-Alterar todos os DAO para que nao trabalhe com a entrada de um parametro do tipo conexao para ser instaciado.
+
+
+
+-implementar uma tabela do banco para armazenar os usuarios(login e senha no minimo).
+
+
+
+-nao precisa inserir usuario, nem listar usuario.
+
+
+-alterar a pagina de login para exibir uma pagina de login para o usuario se autenticar.
+
+
+
