@@ -3,17 +3,20 @@
 require_once '../../model/matricula/matricula.php';
 require_once '../../model/matricula/matricula_dao.php';
 
-$aluno = $_GET['id_aluno'];
-$turma = $_GET['id_turma'];
+$id_aluno = $_GET['aluno'];
+$id_turma = $_GET['turma'];
 $data_matricula = $_GET['data_matricula'];
-//$data_matricula = $_GET[date('Y-m-d')];
-
-
-$matricula = new Matricula(0, $aluno, $turma, $data_matricula);
 
 $conexao = new Conexao();
-$matriculaDao = new MatriculaDao($conexao);
 
+$alunoDao = new AlunoDao($conexao);
+$aluno = $alunoDao->buscar_id($id_aluno);
+
+$turmaDao = new TurmaDao($conexao);
+$turma = $turmaDao->buscar_id($id_turma);
+
+$matricula = new Matricula(0, $aluno, $turma, $data_matricula);
+$matriculaDao = new MatriculaDao($conexao);
 $matriculaDao->inserir($matricula);
 
 header('Location: ../index.html');

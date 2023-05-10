@@ -15,8 +15,8 @@ class TurmaDao {
         $sql = 'INSERT INTO tb_turma (nome, id_curso) VALUES (:nome, :id_curso)';
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':nome', $turma->__get('nome'));
-        $stmt->bindValue(':id_curso', $turma->__get('curso'));
+        $stmt->bindValue(':nome', $turma->nome);
+        $stmt->bindValue(':id_curso', $turma->curso->id);
 
         $stmt->execute();
     }
@@ -28,18 +28,11 @@ class TurmaDao {
 
         $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
         $turmas = array();
-        
-        /*
-        foreach ($resultados as $item) {
-            $nova_turma = new Turma($item->id, $item->nome, $item->id_curso);
 
-            $turmas[] = $nova_turma;
-        }
-        */
-        
         foreach ($resultados as $item) {
 
             $conexao = new Conexao();
+
             $cursoDao = new CursoDao($conexao);
             $curso = $cursoDao->buscar_id($item->id_curso);
 
@@ -49,5 +42,23 @@ class TurmaDao {
         }
         return $turmas;
     }
+    
+    public function buscar_id($id) {
+        $sql = "SELECT * FROM tb_turma WHERE id = :id";
 
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
+
+        $conexao = new Conexao();
+
+        $cursoDao = new CursoDao($conexao);
+        $curso = $cursoDao->buscar_id($resultado->id_curso);
+
+        $nova_turma = new Turma($resultado->id, $resultado->nome, $curso);
+
+        return $nova_turma;
+    }
 }

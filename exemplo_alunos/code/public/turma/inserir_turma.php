@@ -4,14 +4,15 @@ require_once '../../model/turma/turma.php';
 require_once '../../model/turma/turma_dao.php';
 
 $nome = $_GET['nome'];
-$curso = $_GET['id_curso'];
-
-
-$turma = new Turma(0, $nome, $curso);
+$id_curso = $_GET['curso'];
 
 $conexao = new Conexao();
-$turmaDao = new TurmaDao($conexao);
 
+$cursoDao = new CursoDao($conexao);
+$curso = $cursoDao->buscar_id($id_curso);
+
+$turma = new Turma(0, $nome, $curso);
+$turmaDao = new TurmaDao($conexao);
 $turmaDao->inserir($turma);
 
 header('Location: ../index.html');

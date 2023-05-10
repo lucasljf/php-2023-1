@@ -28,7 +28,7 @@
 
     foreach ($cursos as $curso) {
       echo "<tr>";
-      echo "<td>" . $curso->__get('id') . "</td>";
+      echo "<td>" . $curso->id . "</td>";
       echo "<td>" . $curso->nome . "</td>";
       echo "<td>" . $curso->descricao . "</td>";
       echo "<td>" . $curso->carga_horaria . "</td>";

@@ -9,7 +9,7 @@
     <body>
         <form action="inserir_matricula.php" method="get">
             Nome do Aluno: <br>
-            <select name="id_aluno" id="id_aluno">
+            <select name="aluno" id="aluno">
                 <option value="Selecione" selected>Selecione...</option>
                 <?php
                     require_once '../../model/aluno/aluno_dao.php';
@@ -25,7 +25,7 @@
                 ?>
             </select> <br><br>
             Nome da Turma: <br>
-            <select name="id_turma" id="id_turma">
+            <select name="turma" id="turma">
                 <option value="Selecione" selected>Selecione...</option>
                 <?php
                     require_once '../../model/turma/turma_dao.php';
@@ -36,7 +36,7 @@
 
                     // busca  a lista de id e alunos dentro de cada tupla(linha)
                     foreach ($turmas as $turma) {
-                        echo "<option valeu='".$turma->id."'>".$turma->nome."</option>";
+                        echo "<option value='".$turma->id."'>".$turma->nome."</option>";
                     }
                 ?>
             </select> <br><br>
