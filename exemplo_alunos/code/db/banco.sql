@@ -49,7 +49,7 @@ CREATE TABLE `tb_matricula` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_turma` int(11) NOT NULL,
   `id_aluno` int(11) NOT NULL,
-  `date_matricula` date NOT NULL,
+  `data_ingresso` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_aluno` (`id_aluno`),
   KEY `id_turma` (`id_turma`),

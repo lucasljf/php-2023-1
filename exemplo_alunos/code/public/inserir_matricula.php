@@ -10,8 +10,8 @@ $id_turma =  $_GET['id_turma'];
 $data_ingresso = $_GET['data_ingresso'];
 
 // echo $nome;
-$aluno = new Aluno(0, $id_aluno, null, null, null, null );
-$turma = new Turma(0, $id_turma, null, null);
+$aluno = new Aluno($id_aluno, null, null, null, null );
+$turma = new Turma($id_turma, null, null);
 $matricula = new Matricula(0, $aluno, $turma, $data_ingresso);
 
 $conexao = new Conexao();

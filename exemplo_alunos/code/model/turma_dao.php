@@ -23,7 +23,7 @@ class TurmaDao
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':id', $turma->__get('id'));
         $stmt->bindValue(':nome', $turma->__get('nome'));
-        $stmt->bindValue(':curso_id', $turma-> curso -> id -> descricao);
+        $stmt->bindValue(':curso_id', $turma-> curso -> id);
 
         // manda executar SQL
         $stmt->execute();
