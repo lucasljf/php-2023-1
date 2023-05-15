@@ -5,38 +5,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documento</title>
-  <link rel="stylesheet" type="text/css" href="../style/estilo_principal.css">
+  <title>Tela de Login do CRUD</title>
+  <link rel="stylesheet" type="text/css" href="../style/estilo_login.css">
 </head>
 
 <body>
-  <h1>Bem vindo</h1>
-
-  <h3>Controle de Alunos</h3>
-  <div>
-  <a href="cadastrar_aluno.html">Cadastro de aluno</a> <br>
-  <a href="listar_alunos.php">Listar alunos</a> <br>
-  </div>
-  <br>
-  <h3>Controle de Curso</h3>
-  <div>
-  <a href="cadastro_curso.html">Cadastro de curso</a> <br>
-  <a href="listar_cursos.php">Listar cursos</a>
-  </div>
-
-  <br>
-  <h3>Controle de Turma</h3>
-  <div>
-  <a href="cadastrar_turma.php">Cadastro de turma</a> <br>
-  <a href="listar_turmas.php">Listar turmas</a>
-  </div>
-
-  <br>
-  <h3>Controle de Matricula</h3>
-  <div>
-  <a href="cadastrar_matricula.php">Cadastro de Matricula</a> <br>
-  <a href="listar_matriculas.php">Listar Matriculas</a>
-  </div>
+  <div class="conteiner_login">
+  
+    <div class="content-login">
+  
+        <h2> Tela de Login </h2>
+  
+        <form class="caixa_login" method="post" action="verificar_login.php">
+          <label for="email">Login:</label>
+          <br>
+          <input type="email" id="email" class="campo" name="email" placeholder="Digite aqui o seu login"><br>
+          <label class="espaco_senha" for="password">Senha:</label>
+          <br>
+          <input type="text" id="password" class="campo" name="senha" placeholder="Digite aqui a sua senha">
+          <input type="submit" class="botao" value="Entrar">
+        </form>
+    </div><!--corpo onde se tem os dados do formulario de login-->
+  
+  </div><!--Corpo que movimenta o login na pagina-->
 </body>
 
 </html>
