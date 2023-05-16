@@ -8,8 +8,9 @@ class TurmaDao
 {
   private $conexao;
 
-  public function __construct(Conexao $conexao)
+  public function __construct()
   {
+    $conexao = new Conexao();
     $this->conexao = $conexao->conectar();
   }
 
@@ -39,8 +40,7 @@ class TurmaDao
 
     // percorrer resultados
     foreach ($resultados as $item) {
-      $conexao = new Conexao();
-      $cursoDao = new CursoDao($conexao);
+      $cursoDao = new CursoDao();
       $curso = $cursoDao->buscar_id($item->id_curso);
 
       // instanciar turma nova
@@ -60,9 +60,7 @@ class TurmaDao
     $stmt->execute();
     $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
-    $conexao = new Conexao();
-
-    $cursoDao = new CursoDao($conexao);
+    $cursoDao = new CursoDao();
     $curso = $cursoDao->buscar_id($resultado->id_curso);
 
 

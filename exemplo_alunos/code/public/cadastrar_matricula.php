@@ -15,8 +15,7 @@
     <select name="aluno_id" id="aluno_id">
       <?php
       require_once '../model/aluno_dao.php';
-      $conexao = new Conexao();
-      $alunoDao = new AlunoDao($conexao);
+      $alunoDao = new AlunoDao();
 
       $alunos = $alunoDao->listar_tudo();
 
@@ -31,8 +30,7 @@
     <select name="turma_id" id="turma_id">
       <?php
       require_once '../model/turma_dao.php';
-      $conexao = new Conexao();
-      $turmaDao = new TurmaDao($conexao);
+      $turmaDao = new TurmaDao();
 
       $turmas = $turmaDao->listar_tudo();
 

@@ -6,10 +6,9 @@ require_once '../model/turma_dao.php';
 $nome = $_GET['nome'];
 $curso_id = $_GET['curso_id'];
 
-$conexao = new Conexao();
-$turmaDao = new TurmaDao($conexao);
+$turmaDao = new TurmaDao();
 
-$cursoDao = new CursoDao($conexao);
+$cursoDao = new CursoDao();
 
 $curso = $cursoDao->buscar_id($curso_id);
 

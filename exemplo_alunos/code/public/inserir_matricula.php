@@ -8,21 +8,17 @@ $turma_id = $_GET['turma_id'];
 $data_matricula = $_GET['data_matricula'];
 
 
-$conexao = new Conexao();
-$matriculaDao = new MatriculaDao($conexao);
+$matriculaDao = new MatriculaDao();
 
-$alunoDao = new AlunoDao($conexao);
+$alunoDao = new AlunoDao();
 $aluno = $alunoDao->buscar_id($aluno_id);
 
-$turmaDao = new TurmaDao($conexao);
+$turmaDao = new TurmaDao();
 $turma = $turmaDao->buscar_id($turma_id);
 
 $matricula = new Matricula(0, $aluno, $turma, $data_matricula);
 
-//print_r($matricula);
-//echo $matricula->aluno->id . "<br>";
-//echo $matricula->turma->id . "<br>";
-//echo $matricula->data . "<br>";
+
 
 $matriculaDao->inserir($matricula);
 

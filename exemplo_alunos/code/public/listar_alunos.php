@@ -20,8 +20,7 @@
 
     <?php
     require_once '../model/aluno_dao.php';
-    $conexao = new Conexao();
-    $alunoDao = new AlunoDao($conexao);
+    $alunoDao = new AlunoDao();
 
     $alunos = $alunoDao->listar_tudo();
 

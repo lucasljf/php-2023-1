@@ -10,8 +10,9 @@ class MatriculaDao
 {
   private $conexao;
 
-  public function __construct(Conexao $conexao)
+  public function __construct()
   {
+    $conexao = new Conexao();
     $this->conexao = $conexao->conectar();
   }
 
@@ -43,12 +44,11 @@ class MatriculaDao
 
     // percorrer resultados
     foreach ($resultados as $item) {
-      $conexao = new Conexao();
 
-      $alunoDao = new AlunoDao($conexao);
+      $alunoDao = new AlunoDao();
       $aluno = $alunoDao->buscar_id($item->id_aluno);
 
-      $turmaDao = new TurmaDao($conexao);
+      $turmaDao = new TurmaDao();
       $turma = $turmaDao->buscar_id($item->id_turma);
 
       // instanciar matricula nova
