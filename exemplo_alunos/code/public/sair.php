@@ -1,8 +1,6 @@
 <?php
-
-if(!isset($_SESSION)){
     session_start();
-}else{
+    unset($_SESSION['login']);
     session_destroy();
-}
-header("location: index.html");
+    header("location: index.php"); 
+    exit;

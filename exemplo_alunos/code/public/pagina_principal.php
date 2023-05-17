@@ -1,10 +1,7 @@
 <?php
+  require_once '../public/verificar_login.php';
 
-  session_start();
-  
 
-  echo $_SESSION['login'];  
-  echo $_SESSION['senha'];
 ?> 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,8 +16,8 @@
 
 <body>
   <?php
-    if(isset($_SESSION['login']) and isset($_SESSION['senha'])){
-      echo "<h1>Bem vindo</h1>
+    if(isset($_SESSION['login']) == 'admin'){
+      echo "<h1>Bem vindo usuario ". $_SESSION['login'] ."</h1>
 
       <h3>Controle de Alunos</h3>
       <div>
@@ -47,7 +44,7 @@
       <a href='cadastrar_matricula.php'>Cadastro de Matricula</a> <br>
       <a href='listar_matriculas.php'>Listar Matriculas</a>
       </div>";
-    }else if(!isset($_SESSION['login']) != 'admin' || !isset($_SESSION['senha']) != 'admin'){
+    }else{
       echo "<h1>Bem vindo</h1>";
 
       echo "<strong><h3>Você entrou como um usuario nao cadastrado por isso só terá acesso a apenas os dados de listagem.</h3></strong>

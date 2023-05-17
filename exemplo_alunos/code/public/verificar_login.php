@@ -7,9 +7,18 @@
   $login = $_POST['email'];
   $senha = $_POST['senha'];
 
-  $_SESSION['login'] = $login;
-  $_SESSION['senha'] = $senha;
+  $sql = "SELECT * FROM tb_usuario WHERE login = '$login' and senha = '$senha'";
 
+  echo $sql;
+  $res = $conexao->query($sql);
+  print_r($res);
+  $row = $res->fetch_object();
+  $quantidade = $res->num_rows;
 
-  header('Location: pagina_principal.php');
+  if($quantidade > 0){
+    $_SESSION['login'] = $login;
+    header('Location: pagina_principal.php');
+  }else{
+    header('Location: pagina_principal.php');
+  }
 ?>

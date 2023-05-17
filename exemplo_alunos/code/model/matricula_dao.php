@@ -36,11 +36,11 @@ class MatriculaDao{
 
         foreach ($resultados as $item){
             // Buscar aluno
-            $alunoDao = new AlunoDao(new Conexao());
+            $alunoDao = new AlunoDao();
             $aluno = $alunoDao->procurar_por_id($item->id_aluno);
 
             // Buscar turma
-            $turmaDao = new TurmaDao(new Conexao());
+            $turmaDao = new TurmaDao();
             $turma = $turmaDao->procurar_por_id($item->id_turma);
 
             // instancia uma nova matricula
