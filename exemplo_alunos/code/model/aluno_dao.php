@@ -3,7 +3,7 @@
 require_once '../db/conexao.php';
 require_once 'aluno.php';
 
-class AlunoDao
+class AlunoDao implements IDao
 {
   private $conexao;
 
