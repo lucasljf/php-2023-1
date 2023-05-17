@@ -1,5 +1,5 @@
 <?php
-  include_once './public/acesso/controle_acesso.php';
+  include_once './public/acesso/verifica_sessao.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +20,6 @@
   } else {
     include_once './public/logado.php';
   }
-
-  // if (!$_SESSION['logado']) {
-  //   header('./public/visitante.php');
-  // } else {
-  //   header('./public/logado.php');
-  // }
 ?>
 </body>
 

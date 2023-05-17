@@ -29,7 +29,7 @@
   <a href="./public/matricula/listar_matricula.php">Listar matriculas</a>
 
   <br><br><br>
-  <a href="./acesso/formulario_login.php">Fazer Login</a>
+  <a href="./public/acesso/formulario_login.php">Fazer Login</a>
 </body>
 
 </html>

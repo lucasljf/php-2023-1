@@ -1,3 +1,11 @@
+<?php
+  include_once '../acesso/verifica_sessao.php';
+
+if (!$_SESSION['logado']) {
+   header('Location: ../acesso/formulario_login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

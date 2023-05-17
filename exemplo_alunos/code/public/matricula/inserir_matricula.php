@@ -1,4 +1,11 @@
 <?php
+  include_once '../acesso/verifica_sessao.php';
+
+if (!$_SESSION['logado']) {
+   header('Location: ../acesso/formulario_login.php');
+}
+?>
+<?php
 
 require_once '../../model/matricula/matricula.php';
 require_once '../../model/matricula/matricula_dao.php';
