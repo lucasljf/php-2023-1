@@ -32,6 +32,20 @@ INSERT INTO `tb_curso` (`id`, `nome`, `descricao`, `carga_horaria`, `data_inicio
 (1,	'Sistemas de Informação',	'Faz tudo',	2451,	'2024-12-01',	'2024-12-30'),
 (2,	'Biologia',	'Mexe com plantas',	324,	'2024-01-04',	'2024-12-28');
 
+
+DROP TABLE IF EXISTS `tb_turma`;
+CREATE TABLE `tb_turma` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_curso` (`id_curso`),
+  CONSTRAINT `tb_turma_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `tb_curso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+
+
 DROP TABLE IF EXISTS `tb_matricula`;
 CREATE TABLE `tb_matricula` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -45,14 +59,4 @@ CREATE TABLE `tb_matricula` (
   CONSTRAINT `tb_matricula_ibfk_2` FOREIGN KEY (`id_turma`) REFERENCES `tb_turma` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-
-DROP TABLE IF EXISTS `tb_turma`;
-CREATE TABLE `tb_turma` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `id_curso` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_curso` (`id_curso`),
-  CONSTRAINT `tb_turma_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `tb_curso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
