@@ -45,3 +45,11 @@ CREATE TABLE `tb_matricula` (
   CONSTRAINT `tb_matricula_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `tb_aluno` (`id`),
   CONSTRAINT `tb_matricula_ibfk_2` FOREIGN KEY (`id_turma`) REFERENCES `tb_turma` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+DROP TABLE IF EXISTS `tb_usuario`;
+CREATE TABLE `tb_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

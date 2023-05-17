@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
 </head>
-
 <body>
-  <h1>Bem vindo</h1>
+    <form action="login.php" method="post">
+        Login: <br>
+        <input type="text" name="login" id="login"> <br><br>
 
-  <h3>Controle de Alunos</h3>
-  <a href="cadastrar_aluno.html">Cadastro de aluno</a> <br>
-  <a href="listar_alunos.php">Listar alunos</a> <br>
+        Senha: <br>
+        <input type="password" name="senha" id="senha"> <br><br>
 
-  <br>
-  <h3>Controle de Curso</h3>
-  <a href="cadastrar_curso.html">Cadastro de curso</a> <br>
-  <a href="listar_cursos.php">Listar cursos</a>
-
-  <br>
-  <h3>Controle de Turmas</h3>
-  <a href="cadastrar_turma.php">Cadastro de turma</a> <br>
-  <a href="listar_turmas.php">Listar turmas</a>
-
-  <br>
-  <h3>Controle de Matrículas</h3>
-  <a href="cadastrar_matricula.php">Cadastro de matrícula</a> <br>
-  <a href="listar_matriculas.php">Listar matrículas</a>
+        <input type="submit" value="Entrar">
+    </form>
 </body>
-
 </html>
