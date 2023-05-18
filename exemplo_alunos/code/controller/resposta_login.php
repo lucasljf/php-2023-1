@@ -3,7 +3,7 @@
 require_once '../model/usuario_dao.php';
 
 $login = $_POST['login'];
-$senha = $_POST['senha'];
+$senha = md5($_POST['senha']);
 
 $usuarioDao = new UsuarioDao();
 
