@@ -2,7 +2,7 @@
 
 Repositório com os códigos criados durante os experimentos e explicações da disciplina de Programação Web II (2023/1).
 
-## Notas Referente a atividade a ser entregue até 19/05/2023**
+## Notas Referente a atividade a ser entregue até 19/05/2023
 
 1 - Foram implementadas os requisitos conforme discutido em sala de aula.
 
