@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+    header('Location: home.php');
+}
 
 require_once '../model/curso.php';
 require_once '../model/curso_dao.php';
@@ -19,9 +23,6 @@ $cursoDao = new CursoDao();
 
 $cursoDao->inserir($curso);
 
-// echo '<pre>';
-// print_r($curso);
-// echo '</pre>';
 
-header('Location: index.html');
+header('Location: ../public/home.php');
 

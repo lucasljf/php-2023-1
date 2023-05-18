@@ -35,6 +35,8 @@
     }
     ?>
   </table>
+  <br>
+  <a href="home.php">Voltar ao início</a>
 </body>
 
 </html>

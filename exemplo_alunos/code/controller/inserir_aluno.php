@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+    header('Location: home.php');
+}
 
 require_once '../model/aluno.php';
 require_once '../model/aluno_dao.php';
@@ -20,5 +24,5 @@ $alunoDao->inserir($aluno);
 // print_r($aluno);
 // echo '</pre>';
 
-header('Location: index.html');
+header('Location: ../public/home.php');
 

@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if(!isset($_SESSION['id'])){
+    header('Location: home.php');
+}
+
 require_once '../model/turma.php';
 require_once '../model/turma_dao.php';
 
@@ -18,4 +23,4 @@ $turma = new Turma(0, $nome, $curso);
 
 $turmaDao->inserir($turma);
 
-header('Location: index.html');
+header('Location: ../public/home.php');

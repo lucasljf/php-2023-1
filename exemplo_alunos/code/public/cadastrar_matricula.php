@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id'])){
+        header('Location: home.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +15,10 @@
 </head>
 
 <body>
-  <form action="inserir_matricula.php" method="get">
+  <form action="../controller/inserir_matricula.php" method="get">
 
     Aluno: <br>
-    <select name="aluno_id" id="aluno_id">
+    <select required name="aluno_id" id="aluno_id">
       <?php
       require_once '../model/aluno_dao.php';
       $alunoDao = new AlunoDao();
@@ -42,10 +48,12 @@
     <br/><br>
 
     Data de Matrícula: <br>
-    <input type="date" name="data_matricula" id="data_matricula"> <br><br>
+    <input required type="date" name="data_matricula" id="data_matricula"> <br><br>
 
     <input type="submit" value="Salvar">
   </form>
+  <br>
+  <a href="home.php">Cancelar</a>
 </body>
 
 </html>

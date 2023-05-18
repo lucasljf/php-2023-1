@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['id'])){
+    header('Location: home.php');
+}
 require_once '../model/matricula.php';
 require_once '../model/matricula_dao.php';
 
@@ -22,4 +25,4 @@ $matricula = new Matricula(0, $aluno, $turma, $data_matricula);
 
 $matriculaDao->inserir($matricula);
 
-header('Location: index.html');
+header('Location: ../public/home.php');
