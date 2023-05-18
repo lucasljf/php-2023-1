@@ -8,15 +8,15 @@ Repositório com os códigos criados durante os experimentos e explicações da 
 
 2 - A página de login exibe mesagem de login inválido caso haja tentativa de logar e o usuário não acesse pelo link de entrar sem logar.
 
-3 - Foi criado o diretório Controller para os arquivos intermediários de login e inserção.
+3 - Foi criado o diretório **Controller** para os arquivos intermediários de login e inserção.
 
 4 - A verificação da sessão foi implementada em todos arquivos da pasta Controller, impossibilitando o acesso através da URL caso não exista uma sessão válida.
 
-5 - Inserções nulas não poderão ser realizadas/enviadas, pois os campos de cadastro possuem o atributo required, evitando assim possíveis erros de inserção vazias.
+5 - Inserções nulas não poderão ser realizadas/enviadas, pois os campos de cadastro possuem o atributo **required**, evitando assim possíveis erros de inserção vazias.
 
 6 - O mesmo arquivo home.php comporta o usuário logado e o usuário não logado.
 
-7 - As datas das listagens foram formatadas para exibir no formato dd/mm/aaaa.
+7 - As datas das listagens foram formatadas para exibir no formato **dd/mm/aaaa**.
 
 8 - Foi implementada links de navegação nas páginas de cadastro e listar para que o usuário possa voltar ao menu sem a necessidade de usar o botão de voltar do próprio navegador.
 
