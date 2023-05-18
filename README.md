@@ -30,7 +30,7 @@ Repositório com os códigos criados durante os experimentos e explicações da 
 
 13 - O css não foi implementado.
 
-14 - A senha cadastrada no banco foi inserida com hash md5 e o arquivo usuario_dao.php valida a senha j
+14 - A senha cadastrada no banco foi inserida com hash md5 e o arquivo usuario_dao.php valida a senha com o hash aplicado.
 
 ### Importante!
 
