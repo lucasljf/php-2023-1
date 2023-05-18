@@ -66,7 +66,7 @@ CREATE TABLE `tb_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `tb_usuario` (`id`, `nome`, `login`, `senha`, `email`) VALUES
-(1,	'Guilherme',	'gui',	'gui123',	'guilherme@gmail.com');
+(1,	'Guilherme',	'gui',	'8eb53d8b6d23b6c96a6d8cf6845420ff',	'guilherme@gmail.com');
 
 -- 2023-05-18 03:43:05
 
