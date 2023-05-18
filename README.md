@@ -24,7 +24,7 @@ Repositório com os códigos criados durante os experimentos e explicações da 
 
 10 - Se o usuário estiver logado, a mensagem de bem vindo é acrescida pelo seu nome.
 
-11 - Se o usuário estiver logado, abaixo terá a implementação de destruir a sessão com o link **Encerrar sessaõ**.
+11 - Se o usuário estiver logado, abaixo terá a implementação de destruir a sessão com o link **Encerrar sessão**.
 
 12 - Se o usuário não estiver logado e estiver no menu, foi implementado um botão com a opção de **Efetuar Login**
 
