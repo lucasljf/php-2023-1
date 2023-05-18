@@ -60,7 +60,7 @@ CREATE TABLE `tb_usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `login` varchar(12) NOT NULL,
-  `senha` varchar(12) NOT NULL,
+  `senha` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
