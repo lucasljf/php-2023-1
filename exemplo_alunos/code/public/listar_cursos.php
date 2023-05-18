@@ -32,9 +32,8 @@
       echo "<td>" . $curso->nome . "</td>";
       echo "<td>" . $curso->descricao . "</td>";
       echo "<td>" . $curso->carga_horaria . "</td>";
-      echo "<td>" . $curso->data_inicio . "</td>";
-      echo "<td>" . $curso->data_fim . "</td>";
-
+      echo "<td>" . date('d/m/Y', strtotime($curso->data_inicio)) . "</td>";
+      echo "<td>" . date('d/m/Y', strtotime($curso->data_fim)) . "</td>";
       echo "<tr>";
     }
     ?>

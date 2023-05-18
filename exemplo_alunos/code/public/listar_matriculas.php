@@ -30,10 +30,7 @@
       echo "<td>" . $matricula->__get('id') . "</td>"; //duvida sobre __get()
       echo "<td>" . $matricula->aluno->nome . "</td>";
       echo "<td>" . $matricula->turma->nome . "</td>";
-      echo "<td>" . $matricula->data . "</td>";
-
-
-
+      echo "<td>" . date('d/m/Y', strtotime($matricula->data)) . "</td>";
       echo "<tr>";
     }
     ?>

@@ -30,7 +30,7 @@
       echo "<td>" . $aluno->nome . "</td>";
       echo "<td>" . $aluno->endereco . "</td>";
       echo "<td>" . $aluno->telefone . "</td>";
-      echo "<td>" . $aluno->data_nascimento . "</td>";
+      echo "<td>" . date('d/m/Y', strtotime($aluno->data_nascimento)) . "</td>";
       echo "<tr>";
     }
     ?>
