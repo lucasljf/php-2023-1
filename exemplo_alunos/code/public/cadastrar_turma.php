@@ -23,7 +23,7 @@
       echo "<option value='' selected disabled>Selecione o Curso</option>";
       
       foreach ($cursos as $curso) {
-        echo "<option value='". $curso->__get('id') . "'>" . $curso->   __get('nome'). "</option>";
+        echo "<option value='". $curso->id . "'>" . $curso->nome. "</option>";
       }
       echo "</select> <br>";
       if(sizeOf($cursos) == 0){

@@ -19,7 +19,7 @@ class TurmaDao{
         // preencher SQL com dados do aluno que eu quero inserir
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':nome', $turma->__get('nome'));
-        $stmt->bindValue(':id_curso', $turma->__get('curso'));
+        $stmt->bindValue(':id_curso', $turma->curso->id);
 
         // manda executar SQL
         $stmt->execute();

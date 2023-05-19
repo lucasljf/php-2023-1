@@ -21,4 +21,4 @@ $cursoDao->inserir($curso);
 //print_r($curso);
 //echo '</pre>';
 
-header('Location: index.html');
+header('Location: pagina_principal.php');

@@ -26,15 +26,17 @@
 
     foreach ($matriculas as $matricula) {
       echo "<tr>";
-      echo "<td>" . $matricula->__get('id') . "</td>";
-      echo "<td>" . $matricula->aluno->__get('nome') . "</td>";
-      echo "<td>" . $matricula->turma->__get('nome') . "</td>";
-      echo "<td>" . $matricula->turma->__get('curso')->__get('nome') . "</td>";
+      echo "<td>" . $matricula->id . "</td>";
+      echo "<td>" . $matricula->aluno->nome . "</td>";
+      echo "<td>" . $matricula->turma->nome . "</td>";
+      echo "<td>" . $matricula->turma->curso->nome . "</td>";
       echo "<td>" . $matricula->data_matricula . "<?td>";
       echo "<tr>";
     }
     ?>
   </table>
+  <br>
+  <a href="pagina_principal.php">Voltar</a>
 </body>
 
 </html>

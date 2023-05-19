@@ -56,5 +56,5 @@ CREATE TABLE `tb_usuario` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-INSERT INTO VALUES `tb_usuario` (`id`, `login`, `senha`)
-(1, 'admin', 'admin');
+INSERT INTO `tb_usuario` (`login`, `senha`) VALUES
+('admin',	'$2y$10$YaIKY/aZLcGKt.M.6a/R2uXd1lLkxOio3wT002vb/MLg/mkVRSEsm'), ('uigor',	'$2y$10$IQiCr7IY0Eo/CYdgtv8Emui4FXZJDFPxYYarRJ0/8LGsHDb9xtgd2');

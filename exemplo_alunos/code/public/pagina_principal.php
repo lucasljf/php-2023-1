@@ -1,6 +1,5 @@
 <?php
-  require_once '../public/verificar_login.php';
-
+  session_start();
 
 ?> 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
 
 <body>
   <?php
-    if(isset($_SESSION['login']) == 'admin'){
+    if(isset($_SESSION['logado'])){
       echo "<h1>Bem vindo usuario ". $_SESSION['login'] ."</h1>
 
       <h3>Controle de Alunos</h3>
@@ -53,19 +52,15 @@
       <div>
       <a href='listar_alunos.php'>Listar alunos</a> <br>
       </div>
-      <br>
+      
       <h3>Controle de Curso</h3>
       <div>
       <a href='listar_cursos.php'>Listar cursos</a>
-      </div>
-    
-      <br>
+      </div>   
       <h3>Controle de Turma</h3>
       <div>
       <a href='listar_turmas.php'>Listar turmas</a>
       </div>
-    
-      <br>
       <h3>Controle de Matricula</h3>
       <div>
       <a href='listar_matriculas.php'>Listar Matriculas</a>

@@ -31,6 +31,8 @@
     }
     ?>
   </table>
+  <br>
+  <a href="pagina_principal.php">Voltar</a>
 </body>
 
 </html>

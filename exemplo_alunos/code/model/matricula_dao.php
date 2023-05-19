@@ -19,8 +19,8 @@ class MatriculaDao{
 
         // preencher SQL com dados do aluno que eu quero inserir
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':id_aluno', $matricula->__get('aluno'));
-        $stmt->bindValue(':id_turma', $matricula->__get('turma'));
+        $stmt->bindValue(':id_aluno', $matricula->aluno->id);
+        $stmt->bindValue(':id_turma', $matricula->turma->id);
         $stmt->bindValue(':data_matricula', $matricula->__get('data_matricula'));
 
         // manda executar SQL

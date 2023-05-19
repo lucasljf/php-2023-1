@@ -1,5 +1,9 @@
 <?php
   require_once '../db/conexao.php';
+  require_once '../model/usuario.php';
+  require_once '../model/usuario_dao.php';
+
+
   if(!isset($_SESSION)){
     session_start();
   }
@@ -7,18 +11,21 @@
   $login = $_POST['email'];
   $senha = $_POST['senha'];
 
-  $sql = "SELECT * FROM tb_usuario WHERE login = '$login' and senha = '$senha'";
+  $usuario = new Usuario(0, $login, $senha);
 
-  echo $sql;
-  $res = $conexao->query($sql);
-  print_r($res);
-  $row = $res->fetch_object();
-  $quantidade = $res->num_rows;
+  $usuarioDao = new UsuarioDao();
 
-  if($quantidade > 0){
-    $_SESSION['login'] = $login;
-    header('Location: pagina_principal.php');
+  $logado = $usuarioDao->validar($usuario);
+
+  if(!empty($logado)){
+    if(password_verify($senha, $logado->senha)){
+      $_SESSION['login'] = $login;
+      $_SESSION['logado'] = true;
+      header("location: pagina_principal.php");
+    }else{
+      header("location: pagina_principal.php");
+    }
   }else{
-    header('Location: pagina_principal.php');
+    header("location: pagina_principal.php");
   }
 ?>
