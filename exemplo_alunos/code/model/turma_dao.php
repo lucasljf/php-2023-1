@@ -1,26 +1,31 @@
 <?php
 
 require_once '../db/conexao.php';
+require_once '../model/turma.php';
 require_once '../model/curso_dao.php';
-require_once 'turma.php';
+
 
 class TurmaDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
+    public function __construct()
     {
-        $this->conexao = $conexao->conectar();
+      $conexao = new Conexao();
+      $this->conexao = $conexao->conectar();
     }
 
     public function inserir(Turma $turma)
     {
+        // monta SQL
         $sql = 'INSERT INTO tb_turma (nome, id_curso) VALUES (:nome, :id_curso)';
 
+        // preencher SQL com dados do curso que eu quero inserir
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':nome', $turma->nome);
         $stmt->bindValue(':id_curso', $turma->curso->id);
-
+        
+        // manda executar SQL
         $stmt->execute();
     }
 
@@ -33,32 +38,44 @@ class TurmaDao
         $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
         $turmas = array();
 
-        foreach ($resultados as $turma) {
-            $cursoDao = new CursoDao(new Conexao());
-            $curso = $cursoDao->buscar_id($turma->id_curso);
+        // percorrer resultados
+        foreach ($resultados as $item) {
 
-            // $novo_curso = new Curso($turma->id_curso, $turma->nome_curso);
-            $nova_turma = new Turma($turma->id, $turma->nome, $curso);
+            //buscar curso
+            $cursoDao = new CursoDao();
+            $curso = $cursoDao->procurar_id($item->id_curso);
 
+
+            // instanciar turma nova
+            $nova_turma = new Turma($item->id, $item->nome, $curso);
+            
+            // guardar num novo array
             $turmas[] = $nova_turma;
+
         }
+        // retornar esse novo array
         return $turmas;
     }
 
-    public function buscar_id($id)
+    public function procurar_por_id($id)
     {
         $sql = 'SELECT * FROM tb_turma WHERE id = :id';
+
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();
 
         $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
-        $cursoDao = new CursoDao(new Conexao());
-        $curso = $cursoDao->buscar_id($resultado->id_curso);
+        $item = $resultado;
+        
+        // buscar curso
+        $cursoDao = new CursoDao();
+        $curso = $cursoDao->procurar_id($item->id_curso); 
 
-        $nova_turma = new Turma($resultado->id, $resultado->nome, $curso);
+        // instanciar turma nova
+        $turma = new Turma($item->id, $item->nome, $curso);
 
-        return $nova_turma;
+        return $turma;
     }
 }

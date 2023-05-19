@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Página Inicial</title>
 </head>
-
 <body>
-    <h3>Cadastro de Turma</h3>
-    <form action="inserir_turma.php" method="post">
-        <label for="nome">Nome</label> <br>
-        <input type="text" name="nome"> <br><br>
+    <form action="inserir_turma.php" method="get">
+        <?php
+        require_once '../model/curso_dao.php';
 
-        <label for="curso">Curso</label> <br>
-        <select name="curso" id="curso">
-            <?php
-            require_once '../model/curso_dao.php';
-            $conexao = new Conexao();
-            $cursoDao = new CursoDao($conexao);
+        $cursoDao = new CursoDao();
+        $cursos = $cursoDao->listar_tudo();
 
-            $cursos = $cursoDao->listar_tudo();
+        if (sizeof($cursos) == 0) {
+            echo '<p>É necessário <a href="cadastrar_curso.html">cadastrar um curso</a> para criar uma turma!</p>';
+        } else {
+            echo ' 
+                Nome: <br>
+                <input type="text" name="nome" id="nome"> <br><br>
 
+                Curso: <br>
+                <select name="id_curso" id="id_curso">
+            ';
             foreach ($cursos as $curso) {
-                echo "<option value='" . $curso->id . "'>" . $curso->nome . "</option>";
+                echo '<option value="' . $curso->id . '">' . $curso->nome . '</option>';
             }
-            ?>
-        </select> <br><br>
-
-        <input type="submit" value="Cadastrar">
+            echo '
+                </select> <br><br>
+                
+                <input type="submit" value="Salvar">
+            ';
+        }
+        ?>
     </form>
 </body>
-
 </html>
