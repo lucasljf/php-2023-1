@@ -21,4 +21,4 @@ $matricula = new Matricula(0, $aluno, $turma, $data_matricula);
 $matriculaDao = new MatriculaDao($conexao);
 $matriculaDao->inserir($matricula);
 
-header('Location: index.html');
+header('Location: inicio.html');

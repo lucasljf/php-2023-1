@@ -32,6 +32,19 @@ INSERT INTO `tb_curso` (`id`, `nome`, `descricao`, `carga_horaria`, `data_inicio
 (1,	'Tec. Teste',	'Curso para teste do CursoDao',	200,	'2000-01-30',	'2000-03-30'),
 (2,	'Tec. Info',	'Técnico em Informática (Teste 1)',	1000,	'2011-01-01',	'2012-01-01');
 
+DROP TABLE IF EXISTS `tb_turma`;
+CREATE TABLE `tb_turma` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `tb_turma` (`id`, `nome`, `id_curso`) VALUES
+(1,	'Turma 2009',	1),
+(2,	'Turma de 2010',	2),
+(3,	'2a',	2);
+
 DROP TABLE IF EXISTS `tb_matricula`;
 CREATE TABLE `tb_matricula` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -46,18 +59,7 @@ CREATE TABLE `tb_matricula` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
-DROP TABLE IF EXISTS `tb_turma`;
-CREATE TABLE `tb_turma` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `id_curso` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-INSERT INTO `tb_turma` (`id`, `nome`, `id_curso`) VALUES
-(1,	'Turma 2009',	1),
-(2,	'Turma de 2010',	2),
-(3,	'2a',	2);
 
 DROP TABLE IF EXISTS `tb_usuario`;
 CREATE TABLE `tb_usuario` (

@@ -15,4 +15,4 @@ $turma = new Turma(0, $nome, $curso);
 $turmaDao = new TurmaDao($conexao);
 $turmaDao->inserir($turma);
 
-header('Location: index.html');
+header('Location: inicio.html');
