@@ -13,7 +13,7 @@ $data_nascimento = $_GET['data_nascimento'];
 $aluno = new Aluno(0, $nome, $endereco, $telefone, $data_nascimento);
 
 $conexao = new Conexao();
-$alunoDao = new AlunoDao($conexao);
+$alunoDao = new AlunoDao();
 
 $alunoDao->inserir($aluno);
 
@@ -21,4 +21,4 @@ $alunoDao->inserir($aluno);
 // print_r($aluno);
 // echo '</pre>';
 
-header('Location: index.html');
+header('Location: pagina_inicial.php');

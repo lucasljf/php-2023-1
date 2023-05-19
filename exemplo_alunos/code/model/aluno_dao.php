@@ -7,9 +7,10 @@ class AlunoDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
+    public function __construct()
     {
-        $this->conexao = $conexao->conectar();
+        global $conexao;
+        $this-> conexao = $conexao->conectar();
     }
 
     public function inserir(Aluno $aluno)

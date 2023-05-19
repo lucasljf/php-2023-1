@@ -1,16 +1,15 @@
 <?php
-
 require_once '../db/conexao.php';
 require_once 'turma.php';
 require_once '../model/curso_dao.php';
-
 
 class TurmaDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
+    public function __construct()
     {
+        global $conexao;
         $this->conexao = $conexao->conectar();
     }
 
@@ -40,10 +39,11 @@ class TurmaDao
 
         // percorrer resultados
         foreach ($resultados as $item) {
-            require_once '../model/curso_dao.php';
-            $conexao = new Conexao();
-            $cursoDao = new CursoDao($conexao);
+            
+            //busca o id do curso para converter em um nome.
+            $cursoDao = new CursoDao();
             $curso = $cursoDao->busca_id($item -> curso_id);
+            
             // instanciar aluno novo
             $novo_turma = new Turma($item->id, $item->nome, $curso);
             
@@ -60,11 +60,9 @@ class TurmaDao
         $stmt = $this -> conexao -> prepare($sql);
         $stmt -> bindValue(':id', $id);
         $stmt -> execute();
-
         $resultado = $stmt -> fetch(PDO::FETCH_OBJ);
 
-        $conexao = new Conexao();
-        $cursoDao = new CursoDao($conexao);
+        $cursoDao = new CursoDao();
         $curso = $cursoDao->busca_id($resultado->curso_id); 
 
         $novo_turma = new Turma($resultado->id, $resultado->nome, $curso);

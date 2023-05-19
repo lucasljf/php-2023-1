@@ -56,3 +56,14 @@ CREATE TABLE `tb_matricula` (
   CONSTRAINT `tb_matricula_ibfk_5` FOREIGN KEY (`id_aluno`) REFERENCES `tb_aluno` (`id`),
   CONSTRAINT `tb_matricula_ibfk_6` FOREIGN KEY (`id_turma`) REFERENCES `tb_turma` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+DROP TABLE IF EXISTS `tb_usuario`;
+CREATE TABLE `tb_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+INSERT INTO `tb_usuario` (`id`, `usuario`, `senha`) VALUES
+(1,	'admin',	'admin');

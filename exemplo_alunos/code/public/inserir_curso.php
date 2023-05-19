@@ -14,7 +14,7 @@ $data_final = $_GET['data_final'];
 $curso = new Curso(0, $nome, $descricao, $carga_horaria, $data_inicio, $data_final);
 
 $conexao = new Conexao();
-$cursoDao = new CursoDao($conexao);
+$cursoDao = new CursoDao();
 
 $cursoDao->inserir($curso);
 
@@ -22,4 +22,4 @@ $cursoDao->inserir($curso);
 // print_r($aluno);
 // echo '</pre>';
 
-header('Location: index.html');
+header('Location: pagina_inicial.php');

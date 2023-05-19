@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
 </head>
+<center>
 <body>
     <form action="inserir_turma.php" method="get">
 
@@ -18,16 +19,15 @@
                 <?php
                 require_once '../model/curso_dao.php';
                 $conexao = new Conexao();
-                $cursoDao = new CursoDao($conexao);
+                $cursoDao = new CursoDao();
 
                 $cursos = $cursoDao -> listar_tudo();
-
-                foreach ($cursos as $curso) {
-                    echo "<option value='" . $curso->id . "'>" . $curso -> nome . "</option>";
-                }
+                    foreach ($cursos as $curso) {
+                        echo "<option value='" . $curso->id . "'>" . $curso -> nome . "</option>"; }
                 ?>
             </select> <br> <br>
          <input type="submit" value="Salvar">
     </form>
+    </center>
 </body>
 </html>

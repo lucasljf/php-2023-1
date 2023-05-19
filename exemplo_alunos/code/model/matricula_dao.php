@@ -1,14 +1,16 @@
 <?php
-
 require_once '../db/conexao.php';
 require_once 'matricula.php';
+require_once '../model/aluno_dao.php';
+require_once '../model/turma_dao.php';
 
 class MatriculaDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
+    public function __construct()
     {
+        global $conexao;
         $this->conexao = $conexao->conectar();
     }
 
@@ -39,21 +41,19 @@ class MatriculaDao
 
         // percorrer resultados
         foreach ($resultados as $item) {
-            require_once '../model/aluno_dao.php';
-            $conexao = new Conexao();
-            $alunoDao = new AlunoDao($conexao);
+
+            $alunoDao = new AlunoDao();
             $aluno = $alunoDao -> busca_id($item -> id_aluno);
 
-            require_once '../model/turma_dao.php';
-            $conexao = new Conexao();
-            $turmaDao = new TurmaDao($conexao);
+            //busca o id da turma para converter em um nome.
+            $turmaDao = new TurmaDao();
             $turma = $turmaDao -> busca_id($item -> id_turma);
 
             // instanciar aluno novo
             $novo_matricula = new Matricula($item->id, $aluno, $turma, $item->data_ingresso);
             
             // guardar num novo array
-            $matriculas[] = $novo_matricula;
+            $matriculas[] = $novo_matricula; 
         }
         // retornar esse novo array
         return $matriculas;

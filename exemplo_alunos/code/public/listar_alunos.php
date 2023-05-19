@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem</title>
 </head>
-
+<center>
 <body>
     <h1>Lista de alunos</h1>
 
@@ -21,7 +21,7 @@
         <?php
         require_once '../model/aluno_dao.php';
         $conexao = new Conexao();
-        $alunoDao = new AlunoDao($conexao);
+        $alunoDao = new AlunoDao();
 
         $alunos = $alunoDao->listar_tudo();
 
@@ -37,5 +37,6 @@
         ?>
     </table>
 </body>
+</center>
 
 </html>

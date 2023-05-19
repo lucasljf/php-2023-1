@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem</title>
 </head>
-
+<center>
 <body>
     <h1>Lista de matrícula</h1>
 
@@ -20,7 +20,7 @@
         <?php
         require_once '../model/matricula_dao.php';
         $conexao = new Conexao();
-        $matriculaDao = new MatriculaDao($conexao);
+        $matriculaDao = new MatriculaDao();
 
         $matriculas = $matriculaDao->listar_tudo();
 
@@ -35,5 +35,6 @@
         ?>
     </table>
 </body>
+</center>
 
 </html>

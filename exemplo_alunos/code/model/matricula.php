@@ -9,7 +9,7 @@ class Matricula
 
     public function __construct($id, $aluno, $turma, $data_ingresso)
     {
-        $this->id = $id;
+        $this-> id = $id;
         $this-> aluno = $aluno;
         $this-> turma = $turma;
         $this-> data_ingresso = $data_ingresso;

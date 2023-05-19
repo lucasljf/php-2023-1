@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem</title>
 </head>
-
+<center>
 <body>
     <h1>Lista de curso</h1>
 
@@ -22,7 +22,7 @@
         <?php
         require_once '../model/curso_dao.php';
         $conexao = new Conexao();
-        $cursoDao = new CursoDao($conexao);
+        $cursoDao = new CursoDao();
 
         $cursos = $cursoDao->listar_tudo();
 
@@ -39,5 +39,6 @@
         ?>
     </table>
 </body>
+</center>
 
 </html>

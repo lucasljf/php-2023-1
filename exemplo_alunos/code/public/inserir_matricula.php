@@ -15,7 +15,7 @@ $turma = new Turma($id_turma, null, null);
 $matricula = new Matricula(0, $aluno, $turma, $data_ingresso);
 
 $conexao = new Conexao();
-$matriculaDao = new MatriculaDao($conexao);
+$matriculaDao = new MatriculaDao();
 
 $matriculaDao->inserir($matricula);
 
@@ -23,4 +23,4 @@ $matriculaDao->inserir($matricula);
 // print_r($aluno);
 // echo '</pre>';
 
-header('Location: index.html');
+header('Location: pagina_inicial.php');

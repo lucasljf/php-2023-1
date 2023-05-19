@@ -1,11 +1,15 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
 </head>
+<center>
 <body>
     <h1>Bem vind@!!</h1>
 
@@ -27,7 +31,11 @@
     <h3>Controle de matrícula</h3>
     <a href="cadastrar_matricula.php">Cadastro de matrícula</a> <br>
     <a href="listar_matricula.php">Listar matrícula</a>
+    <br> <br>
 
+    <a href="sair.php"> <button type="submit"> Sair </button></a>
 
 </body>
+</center>
 </html>
+

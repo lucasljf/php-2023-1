@@ -1,5 +1,4 @@
 <?php
-
 require_once '../db/conexao.php';
 require_once 'curso.php';
 
@@ -7,8 +6,9 @@ class CursoDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
+    public function __construct()
     {
+        global $conexao;
         $this->conexao = $conexao->conectar();
     }
 

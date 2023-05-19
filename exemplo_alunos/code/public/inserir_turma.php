@@ -12,7 +12,7 @@ $curso = new Curso($curso_id, null, null, null, null, null);
 $turma = new Turma(0, $nome, $curso);
 
 $conexao = new Conexao();
-$turmaDao = new TurmaDao($conexao);
+$turmaDao = new TurmaDao();
 
 $turmaDao->inserir($turma);
 
@@ -20,4 +20,4 @@ $turmaDao->inserir($turma);
 // print_r($aluno);
 // echo '</pre>';
 
-header('Location: index.html');
+header('Location: pagina_inicial.php');
