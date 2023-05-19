@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    
+
+    if (!isset($_SESSION["logado"])){
+        header("Location: sair.php");
+    
+      
+    }
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +19,11 @@
   <title>Document</title>
 </head>
 
+
 <body>
   <h1>Bem vindo</h1>
+  Usuário: <?=$_SESSION["usuario"]?>
+  
 
   <h3>Controle de Alunos</h3>
   <a href="cadastrar_aluno.html">Cadastro de aluno</a> <br>
@@ -26,6 +40,10 @@
   <h3>Controle de Matrícula</h3>
   <a href="cadastrar_matricula.php">Realizar matrícula</a> <br>
   <a href="listar_matriculas.php">Listar matrículas</a> <br><br>
+  <br><br>
+  <a href="sair.php">SAIR</a> 
+
+
 </body>
 
 </html>

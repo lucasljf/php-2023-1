@@ -21,5 +21,5 @@ $alunoDao->inserir($aluno);
 // print_r($aluno);
 // echo '</pre>';
 
-header('Location: inicio.html');
+header('Location: inicio.php');
 

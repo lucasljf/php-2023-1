@@ -16,4 +16,4 @@ $cursoDao = new CursoDao($conexao);
 
 $cursoDao->inserir($curso);
 
-header('Location: inicio.html');
+header('Location: inicio.php');

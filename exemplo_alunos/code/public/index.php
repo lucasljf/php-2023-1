@@ -3,9 +3,10 @@
 	// Verifica se o formulário foi submetido
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Conecta ao banco de dados
-			require_once 'db/conexao.php';
-			require_once 'model/usuario.php';
-			require_once 'model/usuario_dao.php';
+			require_once '../db/conexao.php';
+			require_once '../model/usuario.php';
+			require_once '../model/usuario_dao.php';
+			session_start();
 			$conexao = new Conexao();
 			$usuarioDao = new UsuarioDao($conexao);
 
@@ -16,8 +17,11 @@
 			// Cria um objeto usuário e verifica se estão corretas
 			$usuario = new Usuario(0,$nome_login, $senha);
 			if ($usuarioDao->autenticar($usuario)) {
+				$_SESSION['logado'] = true;
+				$_SESSION['usuario'] = $nome_login;
+
 				// se estão corretas, redireciona para a página protegida
-				header('Location: public/inicio.html');
+				header('Location: inicio.php');
 				exit;
 			} else {
 				// Caso contrário, exibe uma mensagem de erro
@@ -45,7 +49,7 @@
 		<input type="password" name="senha" required>
 		<button type="submit">Entrar</button>
 	</form>
-	<a href="./public/inicio_navegador.html">Acessar sem conta</a> <br>
+	<a href="./public/inicio_sem_login.html">Acessar sem conta</a> <br>
 </body>
 </html>
 
