@@ -9,10 +9,11 @@ class MatriculaDao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
-    {
-        $this->conexao = $conexao->conectar();
-    }
+    public function __construct()
+  {
+    $conexao = new Conexao();
+    $this->conexao = $conexao->conectar();
+  }
 
     public function inserir(Matricula $matricula)
     {

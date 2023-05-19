@@ -7,8 +7,9 @@ class CursoDao
 {
   private $conexao;
 
-  public function __construct(Conexao $conexao)
+  public function __construct()
   {
+    $conexao = new Conexao();
     $this->conexao = $conexao->conectar();
   }
 
