@@ -3,17 +3,13 @@
 require_once '../db/conexao.php';
 require_once 'curso.php';
 
-class CursoDao
+class CursoDao extends Conexao
 {
   private $conexao;
-
-  public function __construct(Conexao $conexao)
-  {
-    $this->conexao = $conexao->conectar();
-  }
-
+  
   public function inserir(Curso $curso)
   {
+    $conexao = $this->conectar();
     $sql = 'INSERT INTO tb_curso (nome, descricao, carga_horaria, data_inicio, data_fim) VALUES (:nome, :descricao, :carga_horaria, :data_inicio, :data_fim)';
 
     $stmt = $this->conexao->prepare($sql);

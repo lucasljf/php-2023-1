@@ -5,17 +5,13 @@ require_once 'matricula.php';
 require_once '../model/aluno_dao.php';
 require_once '../model/turma_dao.php';
 
-class MatriculaDao
-{
+class MatriculaDao extends Conexao{
     private $conexao;
-
-    public function __construct(Conexao $conexao)
-    {
-        $this->conexao = $conexao->conectar();
-    }
 
     public function inserir(Matricula $matricula)
     {
+        $conexao = $this->conectar();
+    
         $sql = 'INSERT INTO tb_matricula (id_aluno, id_turma, data_matricula) VALUES (:id_aluno, :id_turma, :data_matricula)';
 
         $stmt = $this->conexao->prepare($sql);

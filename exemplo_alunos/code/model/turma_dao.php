@@ -4,17 +4,14 @@ require_once '../db/conexao.php';
 require_once '../model/curso_dao.php';
 require_once 'turma.php';
 
-class TurmaDao
+class TurmaDao extends Conexao
 {
     private $conexao;
 
-    public function __construct(Conexao $conexao)
-    {
-        $this->conexao = $conexao->conectar();
-    }
 
     public function inserir(Turma $turma)
     {
+        $conexao = $this->conectar();
         $sql = 'INSERT INTO tb_turma (nome, id_curso) VALUES (:nome, :id_curso)';
 
         $stmt = $this->conexao->prepare($sql);
