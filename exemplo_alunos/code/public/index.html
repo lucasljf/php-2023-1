@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
 </head>
+<body style="text-align: center; background-color:pink">
+        <form method="post" action="chamar_sessao.php">
+            <table>
 
-<body>
-  <h1>Bem vindo</h1>
+                <tr>
+                    <th><h2>Bem Vindo</h2></th>
+                </tr>
 
-  <h3>Controle de Alunos</h3>
-  <a href="cadastrar_aluno.html">Cadastro de aluno</a> <br>
-  <a href="listar_alunos.php">Listar alunos</a> <br><br>
+                <tr>
+                    <td colspan="2">
+                        <input type="text" placeholder="usuario" name="usuario"/>
+                    </td>                    
+                </tr>
 
-  <h3>Controle de Curso</h3>
-  <a href="cadastrar_curso.html">Cadastro de curso</a> <br>
-  <a href="listar_cursos.php">Listar cursos</a> <br><br>
+                <tr>
+                    <td colspan="2" >
+                        <input type="password" placeholder="Senha" name="senha"/>
+                    </td>                                        
+                </tr>
 
-  <h3>Controle de Turma</h3>
-  <a href="cadastrar_turma.php">Cadastro de turma</a> <br>
-  <a href="listar_turmas.php">Listar turmas</a> <br><br>
+                <tr>
+                    <td>
 
-  <h3>Controle de Matrícula</h3>
-  <a href="cadastrar_matricula.php">Realizar matrícula</a> <br>
-  <a href="listar_matriculas.php">Listar matrículas</a> <br><br>
+                        <button type="submit">Entrar</button>
+                    
+                    </td>
+                 </tr> 
+                 
+                 <tr >
+                    <td id="semlogin">
+            
+                        <a href="listagem.html">Entrar sem Login</a>
+                    
+                    </td>
+                </tr>
+    
+            </table>
+        </form>
 </body>
-
 </html>

@@ -2,23 +2,19 @@
 
 require_once '../model/matricula.php';
 require_once '../model/matricula_dao.php';
-require_once '../model/aluno_dao.php';
-require_once '../model/turma_dao.php';
+require_once '../model/aluno.php';
+require_once '../model/turma.php';
 
-$aluno_id = $_POST['aluno'];
-$turma_id = $_POST['turma'];
-$data_matricula = $_POST['data_matricula'];
+$id_aluno = $_GET['id_aluno'];
+$id_turma = $_GET['id_turma'];
 
-$conexao = new Conexao();
+$matriculaDao = new MatriculaDao();
 
-$alunoDao = new AlunoDao($conexao);
-$aluno = $alunoDao->buscar_id($aluno_id);
+$aluno = new Aluno($id_aluno, null, null, null, null);
+$turma = new Turma($id_turma, null, null);
 
-$turmaDao = new TurmaDao($conexao);
-$turma = $turmaDao->buscar_id($turma_id);
+$matricula = new Matricula(0, $aluno, $turma, date('Y-m-d'));
 
-$matricula = new Matricula(0, $aluno, $turma, $data_matricula);
-$matriculaDao = new MatriculaDao($conexao);
 $matriculaDao->inserir($matricula);
 
 header('Location: index.html');

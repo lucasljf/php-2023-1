@@ -9,22 +9,19 @@
 </head>
 
 <body>
-    <h1>Lista de Matrículas</h1>
+    <h1>Lista de matrículas</h1>
 
     <table border="1">
         <th>Id</th>
         <th>Aluno</th>
         <th>Turma</th>
         <th>Curso</th>
-        <th>Desc. Curso</th>
-        <th>Data</th>
+        <th>Data de matrícula</th>
 
         <?php
-
         require_once '../model/matricula_dao.php';
 
-        $conexao = new Conexao();
-        $matriculaDao = new MatriculaDao($conexao);
+        $matriculaDao = new MatriculaDao();
 
         $matriculas = $matriculaDao->listar_tudo();
 
@@ -34,9 +31,8 @@
             echo "<td>" . $matricula->aluno->nome . "</td>";
             echo "<td>" . $matricula->turma->nome . "</td>";
             echo "<td>" . $matricula->turma->curso->nome . "</td>";
-            echo "<td>" . $matricula->turma->curso->descricao . "</td>";
             echo "<td>" . $matricula->data_matricula . "</td>";
-            echo "</tr>";
+            echo "<tr>";
         }
         ?>
     </table>
