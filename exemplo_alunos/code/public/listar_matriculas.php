@@ -23,8 +23,7 @@
 
         require_once '../model/matricula_dao.php';
 
-        $conexao = new Conexao();
-        $matriculaDao = new MatriculaDao($conexao);
+        $matriculaDao = new MatriculaDao();
 
         $matriculas = $matriculaDao->listar_tudo();
 

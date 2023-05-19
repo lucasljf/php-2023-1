@@ -63,3 +63,6 @@ INSERT INTO `tb_turma` (`id`, `nome`, `id_curso`) VALUES
 (1,	'Turma 2009',	1),
 (2,	'Turma de 2010',	2),
 (3,	'2a',	2);
+
+INSERT INTO `usuarios` (`id`, `login`, `senha`) VALUES
+(1, 'layza', '123');
