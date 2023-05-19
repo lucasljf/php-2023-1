@@ -11,16 +11,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
 </head>
-
 <body>
-
-<?php
-  if (!$_SESSION['logado']) {
-    include_once './public/visitante.php';
-  } else {
-    include_once './public/logado.php';
-  }
-?>
+  <?php
+    include_once './public/index.php';
+  ?>
 </body>
 
 </html>

@@ -20,8 +20,7 @@ if (!$_SESSION['logado']) {
                 <option value="Selecione" selected>Selecione...</option>
                 <?php
                     require_once '../../model/aluno/aluno_dao.php';
-                    $conexao = new Conexao();
-                    $alunoDao = new AlunoDao($conexao);
+                    $alunoDao = new AlunoDao();
 
                     $alunos = $alunoDao->listar_tudo();
 
@@ -36,8 +35,7 @@ if (!$_SESSION['logado']) {
                 <option value="Selecione" selected>Selecione...</option>
                 <?php
                     require_once '../../model/turma/turma_dao.php';
-                    $conexao = new Conexao();
-                    $turmaDao = new TurmaDao($conexao);
+                    $turmaDao = new TurmaDao();
 
                     $turmas = $turmaDao->listar_tudo();
 

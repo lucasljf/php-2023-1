@@ -3,22 +3,18 @@
 require_once '../../db/conexao.php';
 require_once 'aluno.php';
 
-class AlunoDao
-{
+class AlunoDao extends Conexao {
   private $conexao;
-
-  public function __construct(Conexao $conexao)
-  {
-    $this->conexao = $conexao->conectar();
-  }
 
   public function inserir(Aluno $aluno)
   {
+
+    $conexao = $this->conectar();
     // monta SQL
     $sql = 'INSERT INTO tb_aluno (nome, endereco, telefone, data_nascimento) VALUES (:nome, :endereco, :telefone, :data_nascimento)';
 
     // preencher SQL com dados do aluno que eu quero inserir
-    $stmt = $this->conexao->prepare($sql);
+    $stmt = $conexao->prepare($sql);
     $stmt->bindValue(':nome', $aluno->__get('nome'));
     $stmt->bindValue(':endereco', $aluno->__get('endereco'));
     $stmt->bindValue(':telefone', $aluno->__get('telefone'));
@@ -28,10 +24,10 @@ class AlunoDao
     $stmt->execute();
   }
 
-  public function listar_tudo()
-  {
+  public function listar_tudo() {
+    $conexao = $this->conectar();
     $sql = 'SELECT * FROM tb_aluno';
-    $stmt = $this->conexao->prepare($sql);
+    $stmt = $conexao->prepare($sql);
     $stmt->execute();
 
     $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -51,9 +47,9 @@ class AlunoDao
   }
 
   public function buscar_id(int $id) {
+    $conexao = $this->conectar();
     $sql = "SELECT * FROM tb_aluno  WHERE id = :id";
-
-    $stmt = $this->conexao->prepare($sql);
+    $stmt = $conexao->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
 

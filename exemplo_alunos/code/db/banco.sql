@@ -15,7 +15,9 @@ CREATE TABLE `tb_aluno` (
 
 INSERT INTO `tb_aluno` (`id`, `nome`, `endereco`, `telefone`, `data_nascimento`) VALUES
 (1,	'Mayko',	'Rua Jose',	'062914253685',	'1995-05-20'),
-(2,	'Diouzef',	'Rua Pereira',	'062925634197',	'1995-05-19');
+(2,	'Diouzef',	'Rua Pereira',	'062925634197',	'1995-05-19'),
+(3,	'Mairon Marques Dos Santos',	'Rod GO 154, Zona Rural',	'993155510',	'2023-05-17'),
+(4,	'Mairon Marques ',	'Rod GO 154, Zona Rural',	'993155510',	'2023-05-30');
 
 DROP TABLE IF EXISTS `tb_curso`;
 CREATE TABLE `tb_curso` (
@@ -30,8 +32,8 @@ CREATE TABLE `tb_curso` (
 
 INSERT INTO `tb_curso` (`id`, `nome`, `descricao`, `carga_horaria`, `data_inicio`, `data_fim`) VALUES
 (1,	'Sistemas de Informação',	'Faz tudo',	2451,	'2024-12-01',	'2024-12-30'),
-(2,	'Biologia',	'Mexe com plantas',	324,	'2024-01-04',	'2024-12-28');
-
+(2,	'Biologia',	'Mexe com plantas',	324,	'2024-01-04',	'2024-12-28'),
+(3,	'Mairon Marques Dos Santos',	'Relatório mensal de atendimentos',	456,	'2023-05-09',	'2023-06-02');
 
 DROP TABLE IF EXISTS `tb_turma`;
 CREATE TABLE `tb_turma` (
@@ -43,8 +45,11 @@ CREATE TABLE `tb_turma` (
   CONSTRAINT `tb_turma_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `tb_curso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-
-
+INSERT INTO `tb_turma` (`id`, `nome`, `id_curso`) VALUES
+(1,	'Web II',	1),
+(2,	'Web II',	1),
+(3,	'IA',	1),
+(4,	'Redes',	1);
 
 DROP TABLE IF EXISTS `tb_matricula`;
 CREATE TABLE `tb_matricula` (
@@ -59,4 +64,16 @@ CREATE TABLE `tb_matricula` (
   CONSTRAINT `tb_matricula_ibfk_2` FOREIGN KEY (`id_turma`) REFERENCES `tb_turma` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+INSERT INTO `tb_matricula` (`id`, `id_aluno`, `id_turma`, `data_matricula`) VALUES
+(1,	3,	3,	'2023-05-17');
 
+DROP TABLE IF EXISTS `tb_usuario`;
+CREATE TABLE `tb_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `tb_usuario` (`id`, `nome`, `senha`) VALUES
+(1,	'mayko',	'12345');

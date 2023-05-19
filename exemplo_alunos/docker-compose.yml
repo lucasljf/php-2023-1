@@ -18,8 +18,8 @@ services:
     environment:
       - MARIADB_USER=root
       - MARIADB_ROOT_PASSWORD=123
-    ports:
-      - "3306:3306"
+    #ports:
+     # - "3306:3306"
   
   adminer:
     image: adminer:4.8.1

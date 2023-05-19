@@ -10,8 +10,8 @@
 
 <body>
     <form action="./controle_acesso.php" method="post">
-        Usuário: <br>
-        <input type="text" name="usuario">
+        Nome: <br>
+        <input type="text" name="nome">
         <br><br>
 
         Senha: <br>

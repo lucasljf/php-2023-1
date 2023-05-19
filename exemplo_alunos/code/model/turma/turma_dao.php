@@ -4,17 +4,14 @@ require_once '../../db/conexao.php';
 require_once 'turma.php';
 require_once '../../model/curso/curso_dao.php';
 
-class TurmaDao {
+class TurmaDao extends Conexao {
     private $conexao;
 
-    public function __construct(Conexao $conexao) {
-        $this->conexao = $conexao->conectar();
-    }
-
     public function inserir(Turma $turma){
+        $conexao = $this->conectar();
         $sql = 'INSERT INTO tb_turma (nome, id_curso) VALUES (:nome, :id_curso)';
 
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $conexao->prepare($sql);
         $stmt->bindValue(':nome', $turma->nome);
         $stmt->bindValue(':id_curso', $turma->curso->id);
 
@@ -22,18 +19,16 @@ class TurmaDao {
     }
 
     public function listar_tudo() {
+        $conexao = $this->conectar();
         $sql = 'SELECT * FROM tb_turma';
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $conexao->prepare($sql);
         $stmt->execute();
 
         $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
         $turmas = array();
 
         foreach ($resultados as $item) {
-
-            $conexao = new Conexao();
-
-            $cursoDao = new CursoDao($conexao);
+            $cursoDao = new CursoDao();
             $curso = $cursoDao->buscar_id($item->id_curso);
 
             $nova_turma = new Turma($item->id, $item->nome, $curso);
@@ -44,17 +39,15 @@ class TurmaDao {
     }
     
     public function buscar_id($id) {
+        $conexao = $this->conectar();
         $sql = "SELECT * FROM tb_turma WHERE id = :id";
-
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $conexao->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();
 
         $resultado = $stmt->fetch(PDO::FETCH_OBJ);
-
-        $conexao = new Conexao();
-
-        $cursoDao = new CursoDao($conexao);
+        
+        $cursoDao = new CursoDao();
         $curso = $cursoDao->buscar_id($resultado->id_curso);
 
         $nova_turma = new Turma($resultado->id, $resultado->nome, $curso);

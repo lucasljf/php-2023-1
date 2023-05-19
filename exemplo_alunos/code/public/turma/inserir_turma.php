@@ -13,13 +13,11 @@ require_once '../../model/turma/turma_dao.php';
 $nome = $_GET['nome'];
 $id_curso = $_GET['curso'];
 
-$conexao = new Conexao();
-
-$cursoDao = new CursoDao($conexao);
+$cursoDao = new CursoDao();
 $curso = $cursoDao->buscar_id($id_curso);
 
 $turma = new Turma(0, $nome, $curso);
-$turmaDao = new TurmaDao($conexao);
+$turmaDao = new TurmaDao();
 $turmaDao->inserir($turma);
 
-header('Location: ../index.html');
+header('Location: ../logado.php');

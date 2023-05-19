@@ -1,7 +1,6 @@
 <?php
 
-class Conexao
-{
+abstract class Conexao {
   private $host = 'mariadb-server';
   private $db = 'db_exemplo_alunos';
   private $user = 'root';
