@@ -51,8 +51,8 @@ CREATE TABLE `tb_matricula` (
 DROP TABLE IF EXISTS `tb_usuario`;
 CREATE TABLE `tb_usuario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(15) NOT NULL,
-  `senha` varchar(15) NOT NULL,
+  `login` varchar(200) NOT NULL,
+  `senha` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
