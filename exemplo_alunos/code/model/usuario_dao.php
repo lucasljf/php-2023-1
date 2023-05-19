@@ -15,7 +15,7 @@ class UsuarioDao
 
     public function autenticar(Usuario $usuario)
     {
-        $sql = "SELECT * FROM tb_usuario WHERE login = :login AND senha = :senha";
+        $sql = "SELECT * FROM tb_usuario WHERE login = :login AND senha = md5(:senha)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':login', $usuario->login);
         $stmt->bindValue(':senha', $usuario->senha);

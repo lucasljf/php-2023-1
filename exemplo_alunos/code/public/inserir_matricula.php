@@ -17,4 +17,4 @@ $matricula = new Matricula(0, $aluno, $turma, date('Y-m-d'));
 
 $matriculaDao->inserir($matricula);
 
-header('Location: index.html');
+header('Location: inicio.html');

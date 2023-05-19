@@ -15,4 +15,4 @@ $cursoDao = new CursoDao();
 
 $cursoDao->inserir($curso);
 
-header('Location: index.html');
+header('Location: inicio.html');

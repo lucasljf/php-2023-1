@@ -14,7 +14,19 @@
         Senha: <br>
         <input type="password" name="senha" id="senha"> <br><br>
 
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Entrar"> <br><br>
+
+        <a href="inicio.html">Entrar como visitante</a>
+
+        <?php
+            if(isset($_GET['erro'])){
+                if($_GET['erro'] == 'permissao'){
+                    echo '<p style="color:red">Faça login para acessar essa página!<p>';
+                } else if ($_GET['erro'] == 'login'){
+                    echo '<p style="color:red">Login ou senha inválidos!<p>';
+                } 
+            }
+        ?>
     </form>
 </body>
 </html>

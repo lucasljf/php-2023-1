@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['logado'])){
+    header('Location: index.php?erro=permissao');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +22,7 @@
         $cursos = $cursoDao->listar_tudo();
 
         if (sizeof($cursos) == 0) {
-            echo '<p>É necessário <a href="cadastrar_curso.html">cadastrar um curso</a> para criar uma turma!</p>';
+            echo '<p>É necessário <a href="cadastrar_curso.php">cadastrar um curso</a> para criar uma turma!</p>';
         } else {
             echo ' 
                 Nome: <br>

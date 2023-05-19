@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['logado'])){
+    header('Location: index.php?erro=permissao');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

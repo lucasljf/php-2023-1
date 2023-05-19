@@ -14,4 +14,4 @@ $turma = new Turma(0, $nome, $curso);
 
 $turmaDao->inserir($turma);
 
-header('Location: index.html');
+header('Location: inicio.html');
