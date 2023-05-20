@@ -17,3 +17,4 @@ class Conexao
     }
   }
 }
+//docker compose up --build -d

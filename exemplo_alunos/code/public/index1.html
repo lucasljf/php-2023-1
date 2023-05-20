@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login </title>
+    <style>
+        #formulario {
+            padding: 20px;
+            width: 200px;
+            height: 1000px;
+        }
+        #quadrado{
+            padding: 20px;
+            width: 200px;
+            height: 1000px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lista">
+        <p>Clique aqui para ver as listas: <a href="ListagemTudo.html">Listas</a></p>
+     </div>
+    <div id="quadrado">
+        
+        <form id="formulario" method="POST" action="login.php">
+            <fieldset>
+                <legend>Formulário</legend>
+                <label>Login:</label>
+                <input type="text" name="usuario">
+                <br><br>
+                <label>Senha:</label>
+                <input type="password" name="senha">
+                <br><br>
+                <input type="submit" value="ENTRAR" id="botaoEntrar">
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+
+</html>
