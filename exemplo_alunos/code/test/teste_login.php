@@ -21,7 +21,7 @@ session_start();
         <?php
           
           $_SESSION['login'] = 'admin';
-          if(isset($_SESSION['login']) == 'admin') {echo "sefudeo carai"; print_r($_SESSION) ;}
+          if(isset($_SESSION['login']) == 'admin') {echo "passou"; print_r($_SESSION) ;}
 
         ?>if($_SESSION['logado'] === 'admin' and $_SESSION['senha'] === 'admin'){
           //print_r($res);
