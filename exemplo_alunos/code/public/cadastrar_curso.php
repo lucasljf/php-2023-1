@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["logado"])) {
+  header("Location: index.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +14,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./template.css" />
 </head>
 
 <body>
@@ -26,7 +35,11 @@
     <label for="data_fim">Data de término</label> <br>
     <input type="date" name="data_fim"> <br><br>
 
-    <input type="submit" value="Cadastrar">
+    <input type="submit" class="botao" value="Cadastrar">
+  </form>
+  <br>
+  <form method="post" action="logado.php">
+    <input type="submit" class="botao" value="Voltar" />
   </form>
 </body>
 

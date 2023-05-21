@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./template.css" />
 </head>
 
 <body>
@@ -21,8 +22,7 @@
 
     <?php
     require_once '../model/curso_dao.php';
-    $conexao = new Conexao();
-    $cursoDao = new CursoDao($conexao);
+    $cursoDao = new CursoDao();
 
     $cursos = $cursoDao->listar_tudo();
 
@@ -38,6 +38,10 @@
     }
     ?>
   </table>
+  <br>
+  <form method="post" action="listar.php">
+    <input type="submit" class="botao" value="Voltar" />
+  </form>
 </body>
 
 </html>

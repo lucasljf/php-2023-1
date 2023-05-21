@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./template.css" />
 </head>
 
 <body>
@@ -23,8 +24,7 @@
 
         require_once '../model/matricula_dao.php';
 
-        $conexao = new Conexao();
-        $matriculaDao = new MatriculaDao($conexao);
+        $matriculaDao = new MatriculaDao();
 
         $matriculas = $matriculaDao->listar_tudo();
 
@@ -40,6 +40,10 @@
         }
         ?>
     </table>
+    <br>
+    <form method="post" action="listar.php">
+        <input type="submit" class="botao" value="Voltar" />
+    </form>
 </body>
 
 </html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./template.css" />
     <title>Document</title>
 </head>
 
@@ -21,8 +22,7 @@
 
         require_once '../model/turma_dao.php';
 
-        $conexao = new Conexao();
-        $turmaDao = new TurmaDao($conexao);
+        $turmaDao = new TurmaDao();
 
         $turmas = $turmaDao->listar_tudo();
 
@@ -36,6 +36,10 @@
         }
         ?>
     </table>
+    <br>
+    <form method="post" action="listar.php">
+        <input type="submit" class="botao" value="Voltar" />
+    </form>
 </body>
 
 </html>
