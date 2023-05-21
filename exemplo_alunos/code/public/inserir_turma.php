@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION["logado"])) {
+    header("Location: index.html");
+}
 
 require_once '../model/turma.php';
 require_once '../model/turma_dao.php';
@@ -6,13 +9,11 @@ require_once '../model/turma_dao.php';
 $nome = $_POST['nome'];
 $curso_id = $_POST['curso'];
 
-$conexao = new Conexao();
-
-$cursoDao = new CursoDao($conexao);
+$cursoDao = new CursoDao();
 $curso = $cursoDao->buscar_id($curso_id);
 
 $turma = new Turma(0, $nome, $curso);
-$turmaDao = new TurmaDao($conexao);
+$turmaDao = new TurmaDao();
 $turmaDao->inserir($turma);
 
-header('Location: index.html');
+header('Location: logado.php');

@@ -1,0 +1,32 @@
+* {
+    background-color: #c1ecff;
+}
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+.botao {
+    background: #1b78ae;
+    color: white;
+    border-style: outset;
+    border-color: #004269;
+    height: 50px;
+    width: 100%;
+    font: bold15px arial, sans-serif;
+    text-shadow: none;
+}

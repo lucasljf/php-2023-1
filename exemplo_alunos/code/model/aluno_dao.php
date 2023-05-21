@@ -3,12 +3,13 @@
 require_once '../db/conexao.php';
 require_once 'aluno.php';
 
-class AlunoDao implements IDao
+class AlunoDao
 {
   private $conexao;
 
-  public function __construct(Conexao $conexao)
+  public function __construct()
   {
+    $conexao = new Conexao();
     $this->conexao = $conexao->conectar();
   }
 
