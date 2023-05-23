@@ -2,6 +2,7 @@
 
 require_once '../db/conexao.php';
 require_once 'curso.php';
+require_once 'idao.php';
 
 class CursoDao implements IDao
 {
