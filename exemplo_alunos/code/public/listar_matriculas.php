@@ -18,6 +18,7 @@
         <th>Curso</th>
         <th>Desc. Curso</th>
         <th>Data</th>
+        <th>Ação</th>
 
         <?php
 
@@ -36,6 +37,7 @@
             echo "<td>" . $matricula->turma->curso->nome . "</td>";
             echo "<td>" . $matricula->turma->curso->descricao . "</td>";
             echo "<td>" . $matricula->data_matricula . "</td>";
+            echo "<td><a href='excluir_matricula.php?id=" . $matricula->id . "'>Excluir</a></td>";
             echo "</tr>";
         }
         ?>

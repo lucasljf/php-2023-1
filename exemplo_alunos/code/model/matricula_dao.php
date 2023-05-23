@@ -48,4 +48,12 @@ class MatriculaDao
         }
         return $matriculas;
     }
+
+    public function excluir(int $id)
+    {
+        $sql = 'DELETE FROM tb_matricula WHERE id = :id';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+    }
 }
