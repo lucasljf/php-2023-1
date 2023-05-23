@@ -12,7 +12,7 @@ class AlunoDao implements IDao
     $this->conexao = $conexao->conectar();
   }
 
-  public function inserir(Aluno $aluno)
+  public function inserir($aluno)
   {
     // monta SQL
     $sql = 'INSERT INTO tb_aluno (nome, endereco, telefone, data_nascimento) VALUES (:nome, :endereco, :telefone, :data_nascimento)';

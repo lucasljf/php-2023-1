@@ -3,7 +3,7 @@
 require_once '../db/conexao.php';
 require_once 'curso.php';
 
-class CursoDao
+class CursoDao implements IDao
 {
   private $conexao;
 
@@ -12,7 +12,7 @@ class CursoDao
     $this->conexao = $conexao->conectar();
   }
 
-  public function inserir(Curso $curso)
+  public function inserir($curso)
   {
     $sql = 'INSERT INTO tb_curso (nome, descricao, carga_horaria, data_inicio, data_fim) VALUES (:nome, :descricao, :carga_horaria, :data_inicio, :data_fim)';
 

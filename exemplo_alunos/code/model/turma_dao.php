@@ -4,7 +4,7 @@ require_once '../db/conexao.php';
 require_once '../model/curso_dao.php';
 require_once 'turma.php';
 
-class TurmaDao
+class TurmaDao implements IDao
 {
     private $conexao;
 
@@ -13,7 +13,7 @@ class TurmaDao
         $this->conexao = $conexao->conectar();
     }
 
-    public function inserir(Turma $turma)
+    public function inserir($turma)
     {
         $sql = 'INSERT INTO tb_turma (nome, id_curso) VALUES (:nome, :id_curso)';
 
