@@ -64,4 +64,16 @@ class AlunoDao implements IDao
 
     return $novo_aluno;
   }
+
+  public function alterar($aluno)
+  {
+    $sql = 'UPDATE tb_aluno SET nome = :nome, endereco = :endereco, telefone = :telefone, data_nascimento = :data_nascimento WHERE id = :id';
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->bindValue(':nome', $aluno->nome);
+    $stmt->bindValue(':endereco', $aluno->endereco);
+    $stmt->bindValue(':telefone', $aluno->telefone);
+    $stmt->bindValue(':data_nascimento', $aluno->data_nascimento);
+    $stmt->bindValue(':id', $aluno->id);
+    $stmt->execute();
+  }
 }

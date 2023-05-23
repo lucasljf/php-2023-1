@@ -17,6 +17,7 @@
     <th>endereco</th>
     <th>telefone</th>
     <th>data nascimento</th>
+    <th>Ação</th>
 
     <?php
     require_once '../model/aluno_dao.php';
@@ -27,11 +28,12 @@
 
     foreach ($alunos as $aluno) {
       echo "<tr>";
-      echo "<td>" . $aluno->__get('id') . "</td>";
+      echo "<td>" . $aluno->id . "</td>";
       echo "<td>" . $aluno->nome . "</td>";
       echo "<td>" . $aluno->endereco . "</td>";
       echo "<td>" . $aluno->telefone . "</td>";
       echo "<td>" . $aluno->data_nascimento . "</td>";
+      echo "<td><a href='cadastrar_aluno.php?id=" . $aluno->id . "'>Editar</a></td>";
       echo "<tr>";
     }
     ?>
