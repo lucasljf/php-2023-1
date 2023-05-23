@@ -10,6 +10,7 @@
 
 <body>
   <?php
+  require_once '../model/aluno.php';
   if (isset($_GET['id'])) {
     require_once '../model/aluno_dao.php';
 
